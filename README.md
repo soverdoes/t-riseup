@@ -14,6 +14,7 @@ T-RiseUp 홈페이지 리뉴얼 — B2B 모빌리티 SaaS 플랫폼 (Ground K).
 | K.RIDEUS | [`rideus.html`](./rideus.html) | 모빌리티 통합 판매 채널 (마켓플레이스) |
 | 면허솔루션 | [`license.html`](./license.html) | 타입1 면허 9개 심사영역 검증 완료 |
 | 도입사례 | [`cases.html`](./cases.html) | 카테고리 필터링 + 21개 도입사례 카드 |
+| 도입문의 | [`contact.html`](./contact.html) | Request a Consultation 폼 (소속·이름·연락처·이메일·문의종류·내용) |
 
 ## 기술 스택
 

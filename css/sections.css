@@ -1026,3 +1026,154 @@
   /* Larger logos on a full-width mobile card (smaller padding inside image box) */
   .cases-grid .case-card__image { padding: 32px 40px; }
 }
+
+
+/* ============ Legal pages (privacy / terms / location) ============
+   Template: Figma 304:815. 2-col layout — sticky title left + content right.
+   Type hierarchy: 60 Montserrat Black title → 36 Bold article → 24 SemiBold subhead → 20 Regular body */
+
+/* Opt out of the scroll-reveal system: legal docs are ~10000px tall, so the
+   IntersectionObserver threshold (0.12) can never be met by a viewport-sized
+   slice, leaving the page blank forever. Force everything visible immediately. */
+.js main > section.legal-page,
+.js .legal-page .reveal,
+.js .legal-page.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.legal-page {
+  padding: 80px 50px 120px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.legal-layout {
+  display: grid;
+  grid-template-columns: 221px minmax(0, 1024px);
+  column-gap: 460px;
+  align-items: start;
+}
+.legal-title {
+  position: sticky;
+  top: 140px;
+  font-family: ''Montserrat'', sans-serif;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--interactive-primary);
+  white-space: nowrap;
+}
+.legal-content { min-width: 0; }
+.legal-article + .legal-article { margin-top: 60px; }
+.legal-article__heading {
+  font-family: var(--font-family);
+  font-weight: var(--fw-bold);                 /* 700 */
+  font-size: 36px;
+  line-height: 1.2;
+  color: var(--tx-default);                    /* #222 */
+  margin: 0 0 24px;
+}
+.legal-subheading {
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);             /* 600 */
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--tx-default);
+  margin: 32px 0 12px;
+}
+.legal-content p,
+.legal-content li,
+.legal-content td,
+.legal-content th {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);              /* 400 */
+  font-size: 20px;
+  line-height: 1.4;                            /* 140% per Figma */
+  color: #555;
+}
+.legal-content p { margin: 0 0 12px; }
+.legal-content p + p { margin-top: 8px; }
+.legal-content ul,
+.legal-content ol {
+  margin: 8px 0 16px;
+  padding-left: 24px;
+  list-style: disc;
+}
+.legal-content ol { list-style: decimal; }
+.legal-content li { margin-bottom: 6px; }
+.legal-content li::marker { color: #888; }
+.legal-content strong { font-weight: var(--fw-semibold); color: var(--tx-default); }
+.legal-content em { font-style: normal; font-weight: var(--fw-semibold); color: var(--tx-default); }
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 18px;
+}
+.legal-content th,
+.legal-content td {
+  border: 1px solid var(--gray-300);
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 18px;
+}
+.legal-content th {
+  background: var(--gray-100, #F4F4F8);
+  font-weight: var(--fw-semibold);
+  color: var(--tx-default);
+}
+.legal-content a {
+  color: var(--interactive-accent-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-meta {
+  margin-top: 60px;
+  padding: 20px 24px;
+  background: var(--gray-100, #F4F4F8);
+  border-radius: 12px;
+}
+.legal-meta p { margin: 0; font-size: 16px; color: #555; }
+.legal-meta p + p { margin-top: 4px; }
+
+/* ============ Responsive — Legal ============ */
+@media (max-width: 1440px) {
+  .legal-layout { column-gap: 200px; grid-template-columns: 221px minmax(0, 1fr); }
+}
+@media (max-width: 1024px) {
+  .legal-page { padding: 60px 32px 80px; }
+  .legal-layout {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+  .legal-title {
+    position: static;
+    font-size: 44px;
+    white-space: normal;
+  }
+  .legal-article__heading { font-size: 28px; margin-bottom: 16px; }
+  .legal-subheading { font-size: 20px; margin: 24px 0 10px; }
+  .legal-content p,
+  .legal-content li,
+  .legal-content td,
+  .legal-content th { font-size: 16px; line-height: 1.5; }
+  .legal-content th,
+  .legal-content td { padding: 10px 12px; font-size: 15px; }
+  .legal-article + .legal-article { margin-top: 40px; }
+}
+@media (max-width: 640px) {
+  .legal-page { padding: 40px 16px 60px; }
+  .legal-title { font-size: 36px; }
+  .legal-article__heading { font-size: 22px; }
+  .legal-subheading { font-size: 18px; }
+  .legal-content p,
+  .legal-content li,
+  .legal-content td,
+  .legal-content th { font-size: 15px; }
+  .legal-content th,
+  .legal-content td { padding: 8px 10px; font-size: 14px; }
+  .legal-meta { padding: 16px; }
+}

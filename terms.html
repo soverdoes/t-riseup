@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* Mark JS active for first paint (so reveal styles can apply), then a 600ms
+       safety net adds .reveal-fallback if initScrollReveal never ran. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>이용약관 · T-RiseUp</title>
+  <meta name="description" content="T-RiseUp · Ground K 이용약관">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png';">
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.pms">PMS Solution</span></a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.tms">TMS Solution</span></a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.rideus">K.RIDEUS</span></a>
+              <a href="./license.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.license">면허솔루션</span></a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link"><span data-i18n="nav.cases">도입사례</span></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm"><span data-i18n="nav.contact">도입문의</span></a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span><span class="site-header__toggle-bar"></span><span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-page">
+      <div class="legal-layout">
+        <h1 class="legal-title">이용약관</h1>
+
+        <div class="legal-content">
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 1 조 (목적)</h2>
+            <p>이 약관은 주식회사 그라운드케이와(이하 "회사")와 이용자(이하 "이용자") 사이의 회사가 제공하는 의전 서비스(이하 "서비스") 이용계약 상의 권리 및 의무에 관한 사항을 규정함을 목적으로 합니다.</p>
+            <p>※ 「PC통신 등을 이용하는 전자거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다」</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 2 조 (약관의 명시 및 개정)</h2>
+            <p>1. 회사는 본 약관의 내용을 이용자가 쉽게 알 수 있도록 홈페이지의 화면 내 또는 별도의 연결 화면에 게시하거나 팝업 화면 등으로 제공합니다.</p>
+            <p>2. 회사는 약관의 규제 등에 관한 법률, 전자거래기본법, 전자서명법, 정보통신망 이용촉진 등에 관한 법률, 방문판매 등에 관한 법률, 소비자보호법 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.</p>
+            <p>3. 회사가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 홈페이지의 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다. 다만, 이용자에게 불리한 약관의 개정의 경우에는 적용일자 30일 전부터 공지하고, 이용자가 가입 시 제공한 연락처 및 SMS, 서비스 이용 시 동의 창 등의 전자적 수단을 통해 따로 명확히 통지하도록 합니다.</p>
+            <p>4. 회사가 전항에 따라 개정 약관을 공지 또는 통지하면서 이용자에게 약관 변경 적용 일까지 거부 의사를 표시하지 아니할 경우, 약관의 변경에 동의한 것으로 간주한다는 뜻을 명확하게 공지 또는 통지하였음에도 이용자가 명시적으로 거부 의사표시를 하지 아니한 경우 이용자가 개정 약관에 동의한 것으로 봅니다.</p>
+            <p>5. 이용자가 개정 약관의 적용에 동의하지 않는 경우 회사는 개정 약관의 내용을 적용할 수 없으며, 이 경우 이용자는 이용계약을 해지할 수 있습니다. 다만, 회사가 개정 약관에 부 동의한 이용자에게 기존약관을 적용할 수 없는 특별한 사정이 있는 경우에는 회사는 해당 이용자와의 이용계약을 해지할 수 있습니다.</p>
+            <p>6. 회사는 필요한 경우 특정 서비스에 관하여 적용될 사항을 위해 개별 약관이나 이용 정책을 정하여 운영할 수 있으며, 해당 내용은 홈페이지 등을 통해 공지합니다. 본 약관과 개별약관, 이용정책의 내용이 충돌할 경우 본 약관에 별도의 규정이 없는 한 본 약관에 따릅니다.</p>
+            <p>7. 이 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 정부가 제정한 전자거래소비자보호지침 및 관계법령 또는 상관례에 따릅니다.</p>
+            <p>8. 이용자는 항상 개별약관이나 이용정책의 내용에 변경이 있는지를 확인하여야 하며, 이를 확인하지 않아 발생한 손해에 대해서는 회사는 책임을 부담하지 않습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 3 조 (이용자에 대한 통지)</h2>
+            <p>1. 회사가 이용자에 대한 통지를 하는 경우, 이용자가 회사에 제출한 전자우편 주소 및 유선 전화번호, 휴대폰 번호로 할 수 있습니다.</p>
+            <p>2. 회사는 불특정다수 회원에 대한 통지의 경우 1주일이상 회사 홈페이지 게시판 등에 게시함으로서 개별 통지에 갈음할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 4 조 (서비스 이용 요금체계)</h2>
+            <p>1. 서비스는 차종, 이동 거리 및 이용 시간을 기반으로 사전 요금이 책정되며, 사전 요금에는 차고지로의 이동 거리와 시간, 운전 기사 인건비, 유류비, 사전에 요청한 부가 서비스 및 컨시어지 서비스 이용료가 포함됩니다.</p>
+            <p>2. 서비스의 차고지는 서울과 부산이며, 각각 서울시청과 부산시청을 출발지로 하여 이용 요금이 계산됩니다. 차고지는 시스템의 계산에 의해 이동거리 및 시간이 더 가까운 차고지가 자동으로 선택되며, 이용자는 차고지를 선택할 수 없습니다.</p>
+            <p>3. 이용자는 홈페이지 내 문의 또는 고객센터로 연락 후 이용 요금을 확인할 수 있습니다.</p>
+            <p>4. 서비스 이용 전에 예측할 수 없는 대기시간, 초과시간, 초과 운행거리, 통행료, 주차료, 그 외 서비스 현장에서 이용자가 요구하는 추가 서비스 등은 사전 요금에 포함되지 않으며, 이로 인해 최종 요금이 변경될 수 있습니다.</p>
+            <p>5. 중간 경유지를 추가할 경우 이동 거리와 이동 시간만큼의 추가 요금이 발생합니다.</p>
+            <p>6. 추가 요금이 발생할 경우 회사는 이용자에게 별도의 정산을 요구할 수 있으며, 이용자는 회사가 요구한 시일 내에 유효한 방법으로 결제를 완료해야 합니다.</p>
+            <p>7. 해외 서비스의 경우, 현지 파트너사의 이용 약관에 따라 서비스 요금이 부과됩니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 5 조 (서비스 예약)</h2>
+            <p>1. 서비스 이용자는 홈페이지 내 문의 또는 고객센터를 통해 이하의 방법에 의하여 구매를 신청합니다.</p>
+            <ul>
+              <li>성명, 휴대폰 번호, 주소(출발지, 경유지, 목적지), 국적, 이메일 입력</li>
+              <li>차종, 이용시간, 탑승자 수, 수하물 수, 항공편, 부가 서비스 선택</li>
+              <li>회사 담당자 견적 확인 후 결제</li>
+            </ul>
+            <p>2. 서비스는 이용자가 서비스를 예약하고 결제를 완료함으로써 예약이 확정됩니다. 이용자가 회사로부터 결제 요청을 받고 24시간 이내에 결제를 완료하지 않을 경우 예약은 자동 취소됩니다.</p>
+            <p>3. 서비스의 예약은 홈페이지 내 문의 또는 고객센터를 통해 이루어집니다.</p>
+            <p>4. 이용자의 픽업 시간 기준 최소 24시간 전까지 예약을 권장하며, 당일 예약 접수는 탑승 6시간 전까지 가능합니다.</p>
+            <p>5. 해외 서비스의 경우 이용자의 픽업 시간 기준 48시간 전까지 예약을 접수해야 서비스 이용이 가능합니다.</p>
+            <p>6. 이용자가 예약 내용을 변경하고자 기존 예약을 취소 후 새로운 예약으로 접수하여야 합니다. 이때, 제6조에 의한 취소 수수료가 발생할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 6 조 (예약 취소 및 환불, 취소 수수료)</h2>
+            <p>1. 이용자가 예약 취소를 원할 경우, 홈페이지 또는 고객센터를 통해야 합니다.</p>
+            <p>2. 이용자가 회사를 통하지 않고 운전기사와 직접 연락하여 예약을 취소하였을 때 발생할 수 있는 불이익에 대해, 회사는 별도의 책임을 지지 않습니다.</p>
+            <p>3. 천재지변 등 서비스를 제공하지 못할 불가항력적인 사유가 발생하였을 때 회사는 예약을 취소할 수 있습니다. 이 경우 이용자에게 사전에 고지합니다.</p>
+            <p>4. 서비스 취소 및 환불 규정은 아래의 표와 같습니다.</p>
+
+            <h3 class="legal-subheading">국내 서비스</h3>
+            <table>
+              <thead>
+                <tr><th>차종</th><th>취소 기준</th><th>취소 수수료</th></tr>
+              </thead>
+              <tbody>
+                <tr><td rowspan="3">세단, 고급세단, 미니밴</td><td>24시간 이전</td><td>취소 수수료 없음</td></tr>
+                <tr><td>24시간 미만</td><td>50% 취소 수수료</td></tr>
+                <tr><td>12시간 미만</td><td>100% 취소 수수료</td></tr>
+                <tr><td rowspan="3">수입세단, 럭셔리밴, 미니버스, 대형버스</td><td>48시간 이전</td><td>취소 수수료 없음</td></tr>
+                <tr><td>48시간 미만</td><td>50% 취소 수수료</td></tr>
+                <tr><td>24시간 미만</td><td>100% 취소 수수료</td></tr>
+              </tbody>
+            </table>
+
+            <h3 class="legal-subheading">해외 서비스</h3>
+            <table>
+              <thead>
+                <tr><th>차종</th><th>취소 기준</th><th>취소 수수료</th></tr>
+              </thead>
+              <tbody>
+                <tr><td rowspan="3">세단, 고급세단, 미니밴</td><td>48시간 이전</td><td>취소 수수료 없음</td></tr>
+                <tr><td>48시간 미만</td><td>50% 취소 수수료</td></tr>
+                <tr><td>24시간 미만</td><td>100% 취소 수수료</td></tr>
+                <tr><td rowspan="3">럭셔리밴, 미니버스, 대형버스</td><td>72시간 이전</td><td>취소 수수료 없음</td></tr>
+                <tr><td>72시간 미만</td><td>50% 취소 수수료</td></tr>
+                <tr><td>48시간 미만</td><td>100% 취소 수수료</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 7 조 (요금 지급 방법 등)</h2>
+            <p>1. 서비스 요금 지급은 체크카드 및 신용카드(개인/법인), 현금 결제(현금영수증, 세금계산서 발행)로 가능합니다.</p>
+            <p>2. 법인 이용자는 당월 서비스 이용요금을 익월 10일 이전에 결제하는 것을 기본으로 합니다.</p>
+            <p>3. 회사는 법인고객의 서비스 이용내역에 대하여 정산 담당자에게 월 단위로 전자 메일 혹은 우편으로 발송합니다.</p>
+            <p>4. 회사는 서비스 정책에 따라 이용자에게 요금의 일정액 또는 일정 비율을 할인받을 수 있는 정액권을 유상으로 판매하거나, 무상으로 지급할 수 있습니다.</p>
+            <p>5. 정액권의 잔여 시간은 결제일로부터 5년이 경과하도록 사용하지 않거나 환불을 요청하지 않을 경우 상법상의 상사 소멸시효에 의해 소멸됩니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 8 조 (서비스 이용계약 해지)</h2>
+            <p>1. 회사는 다음 각 호의 어느 하나에 해당하는 경우에는 계약을 해지할 수 있습니다.</p>
+            <p>① 이용자가 계약의 중요한 사항을 위반하여 계약을 유지하기 어려운 객관적인 사정이 존재할 때</p>
+            <p>② 계약 당시 이용자의 개인정보가 허위로 판명된 때</p>
+            <p>③ 서비스 이용요금을 결제(익월 결제)에 대하여 1개월 이상 연체하였을 때</p>
+            <p>④ 이용자가 본 약관에 위배되는 행위를 한 경우</p>
+            <p>⑤ 이용자가 고의로 회사의 영업을 방해한 경우</p>
+            <p>⑥ 이용자가 고의로 미수금을 발생시킨 것으로 판단되는 경우</p>
+            <p>⑦ 이용자가 서비스의 원활한 진행을 방해하는 행위를 하거나 시도한 경우</p>
+            <p>⑧ 이용자에게 법적, 윤리적, 사회적 관점에서 심각한 결함이 있다고 판단하였을 때</p>
+            <p>⑨ 이용자가 과거 서비스 이용 요금의 체납이 있을 때</p>
+            <p>⑩ 과거 서비스 이용 시 제9조에 해당하는 행위가 있었을 때</p>
+            <p>⑪ 위 각호에 준하는 사항으로서 서비스 이용계약의 체결을 거절할 만한 객관적이고 합리적인 사유가 있을 때</p>
+            <p>2. 제1항에 따라 계약이 해지된 경우 이용자는 계약이 해지된 시점까지 이용한 서비스 이용요금에 대해서 회사에게 1주일 이내 지급하여야 합니다.</p>
+            <p>3. 회사가 이용계약을 해지하는 경우, 회사는 이용자에게 해지 사유를 사전에 통지하며, 충분한 이의 신청 기회을 부여합니다. 다만, 본 약관 및 관련법에서 정하는 사유가 있을 경우 별도의 이의 신청 기간을 부여하지 않을 수 있습니다.</p>
+            <p>4. 이용자의 귀책사유로 인해 이용계약이 해지됨으로써 발생하는 손해는 이용자가 부담하여야 하며, 회사는 별도의 책임을 지지 않습니다.</p>
+            <p>5. 회사는 이용자의 귀책사유로 인한 계약해지로 인해 발생하는 손해에 대해 이용자에게 손해배상을 청구할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 9 조 (이용자의 서비스 이용계약 해지)</h2>
+            <p>1. 이용자는 회사의 귀책 사유로 인하여 서비스 이용을 사용할 수 없는 때에는 서비스 이용계약을 해지할 수 있으며, 그에 상응하는 금적적, 비금전적 조치를 요청할 수 있습니다.</p>
+            <p>2. 이용자는 서비스 이용 시, 회사와 합의하여 서비스 이용계약을 해지할 수 있으며, 해지 시점까지의 서비스 이용 요금 지급 및 환불 등의 조치는 해지 시점으로부터 1주일 이내에 이루어져야 합니다.</p>
+            <p>3. 이용자의 개인 정보 및 기밀 정보를 회사가 외부로 유출한 경우, 이용자는 계약 해지를 요구할 수 있으며, 피해액을 산정하여 법적 조치를 취할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 10 조 (서비스의 변경)</h2>
+            <p>1. 회사는 운영상, 기술상의 필요에 따라 제공하고 있는 서비스의 전부 또는 일부를 변경할 수 있습니다. 다만, 변경된 내용이 중대하거나 이용자에게 불리한 경우에는 해당 서비스를 제공받는 이용자에게 제3조에서 정한 방법으로 통지합니다.</p>
+            <p>2. 회사는 전항에 따른 서비스 변경에 대한 동의를 거절한 이용자에 대하여는 변경 전 서비스를 제공합니다. 다만, 그러한 서비스 제공이 불가능할 경우 해당 서비스의 제공을 중지하거나 이용계약을 해지할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 11 조 (서비스의 중단)</h2>
+            <p>1. 회사는 컴퓨터 등 정보통신설비의 보수점검•교체 및 고장, 통신의 두절 등의 사유가 발생한 경우에는 서비스의 제공을 일시적으로 중단할 수 있습니다.</p>
+            <p>2. 제1항에 의한 서비스 중단의 경우 회사는 제2조에 정한 방법으로 이용자에게 통지합니다.</p>
+            <p>3. 회사는 제1항의 사유로 서비스의 제공이 일시적으로 중단됨으로 인하여 이용자 또는 제3자가 입은 손해에 대하여 배상합니다. 단 회사에 고의 또는 과실이 없는 경우에는 그러하지 아니합니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 12 조 (금지행위)</h2>
+            <p>1. 이용자는 서비스 이용 중 다음 각 호의 어느 하나에 해당하는 행위를 하여서는 안됩니다.</p>
+            <p>① 서비스 이용 간 폭행, 폭언, 모욕적 언사, 성희롱, 성추행 등의 행위</p>
+            <p>② 교통법규 위반 등 비정상적 운전 강요</p>
+            <p>③ 드라이버 및 의전 담당자의 개인 번호를 파악하여 지속적인 연락 및 업무 방해</p>
+            <p>④ 일방적인 계약 취소</p>
+            <p>⑤ 사전에 협의되지 않은 과다한 업무 요구</p>
+            <p>⑥ 타인의 명의를 도용하거나 부정한 거래로 서비스를 이용</p>
+            <p>⑦ 서비스 이용 의사 없이 예약을 하는 행위 등의 영업 방해</p>
+            <p>⑧ 회사의 저작권 등 지적재산권 침해 행위</p>
+            <p>⑨ 고의적인 드라이버의 운전 방해</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 13 조 (회사의 의무)</h2>
+            <p>1. 회사는 법령과 이 약관이 금지하거나 공서양속에 반하는 행위를 하지 않으며 이 약관이 정하는 바에 따라 지속적이고, 안정적으로 재화•용역을 제공하는 데 최선을 다하여야 합니다.</p>
+            <p>2. 회사는 이용자가 안전하게 인터넷 서비스를 이용할 수 있도록 이용자의 개인정보(신용정보 포함)보호를 위한 보안 시스템을 갖추어야 합니다.</p>
+            <p>3. 회사가 상품이나 용역에 대하여 「표시•광고의 공정화에 관한 법률」 제3조 소정의 부당한 표시•광고행위를 함으로써 이용자가 손해를 입은 때에는 이를 배상할 책임을 집니다.</p>
+            <p>4. 회사는 이용자가 원하지 않는 영리목적의 광고성 전자우편을 발송하지 않습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 14 조 (배상책임)</h2>
+            <p>1. 이용자는 서비스 이용 기간 중 이용자의 귀책사유로 인해 회사 또는 제 3자에게 손해를 끼쳤을 경우, 그 손해를 배상할 책임을 가집니다.</p>
+            <p>2. 서비스 이용 중 드라이버 및 담당자의 과실로 인해 발생하는 손해는 회사가 책임집니다.</p>
+            <p>3. 이용자의 지시로 인해 발생하는 과태료 및 범칙금은 이용자가 부담합니다.</p>
+            <p>4. 제12조의 금지행위가 적발될 경우 회사는 이용자에게 그에 따른 손해배상과 법적 책임을 요청할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 15 조 (개인정보보호)</h2>
+            <p>1. 회사는 이용자의 정보 수집 시 구매계약 이행에 필요한 최소한의 정보를 수집합니다. 다음 사항을 필수사항으로 하며 그 외 사항은 선택사항으로 합니다.</p>
+            <ul>
+              <li>희망ID(회원의 경우)</li>
+              <li>비밀번호(회원의 경우)</li>
+              <li>이름</li>
+              <li>이메일</li>
+              <li>주소 (출발지, 경유지, 목적지)</li>
+              <li>연락처 (국가번호 포함)</li>
+              <li>메일링서비스 수신여부</li>
+              <li>SMS 수신여부</li>
+              <li>개인위치정보 (※ 회사의 위치기반 서비스에 대해서는 위치기반서비스 이용약관에서 상세히 규정하고 있습니다.)</li>
+            </ul>
+            <p>2. 회사가 이용자의 개인 식별이 가능한 개인정보를 수집하는 때에는 반드시 당해 이용자의 동의를 받습니다.</p>
+            <p>3. 제공된 개인정보는 당해 이용자의 동의 없이 목적 외의 이용이나 제3자에게 제공할 수 없으며, 이에 대한 모든 책임은 회사가 집니다. 다만, 다음의 경우에는 예외로 합니다.</p>
+            <ul>
+              <li>서비스 이용 시 파트너사에게 서비스 이용에 필요한 최소한의 이용자의 정보(성명, 주소, 전화번호, 휴대전화 번호, 이메일 주소)를 알려주는 경우</li>
+              <li>통계작성, 학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 개인을 식별할 수 없는 형태로 제공하는 경우</li>
+            </ul>
+            <p>4. 회사가 제2항과 제3항에 의해 이용자의 동의를 받아야 하는 경우에는 개인정보관리 책임자의 신원(소속, 성명 및 전화번호 기타 연락처), 정보의 수집목적 및 이용목적, 제3자에 대한 정보제공 관련사항(제공 받는자, 제공목적 및 제공할 정보의 내용)등 정보통신망이용촉진 등에 관한 법률 제16조제3항이 규정한 사항을 미리 명시하거나 고지해야 하며 이용자는 언제든지 이 동의를 철회할 수 있습니다. 이용자는 언제든지 회사가 가지고 있는 자신의 개인정보에 대해 열람 및 오류정정을 요구할 수 있으며 회사는 이에 대해 지체 없이 필요한 조치를 취할 의무를 집니다. 이용자가 오류의 정정을 요구한 경우에는 회사는 그 오류를 정정할 때까지 당해 개인정보를 이용하지 않습니다.</p>
+            <p>5. 회사는 개인정보 보호를 위하여 관리자를 한정하여 그 수를 최소화하며 신용카드, 은행계좌 등을 포함한 이용자의 개인정보의 분실, 도난, 유출, 변조 등으로 인한 이용자의 손해에 대하여 모든 책임을 집니다.</p>
+            <p>6. 회사 또는 그로부터 개인정보를 제공받은 제3자는 개인정보의 수집목적 또는 제공받은 목적을 달성한 때에는 당해 개인정보를 지체 없이 파기합니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 16 조 (세칙)</h2>
+            <p>회사는 이 약관이 정한 범위 내에서 이용자의 이해가 용이하도록 세부사항을 규정하는 세칙을 정할 수 있습니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 17 조 (저작권의 귀속 및 이용제한)</h2>
+            <p>1. 회사가 작성한 저작물에 대한 저작권 기타 지적재산권은 회사에 귀속합니다.</p>
+            <p>2. 이용자는 서비스를 이용함으로써 얻은 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 18 조 (분쟁 조정)</h2>
+            <p>1. 서비스 제공자와 이용자간에 분쟁이 발생한 경우 원칙적으로 상호 합의하에 해결합니다.</p>
+            <p>2. 1항의 노력에도 불구하고 분쟁이 해결되지 않을 경우, 회사의 주소지 관할 지방법원을 관할로 하여 재판으로 해결합니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">제 19 조 (기타)</h2>
+            <p>1. 서비스 제공자는 신의성실에 의거하여 서비스를 제공합니다.</p>
+            <p>2. 계약서에 명시되지 않은 부분은 관련 법규 및 상관습에 따릅니다.</p>
+          </article>
+
+          <article class="legal-article">
+            <h2 class="legal-article__heading">[부칙] 제 1 조 (시행일자)</h2>
+            <p>본 약관은 2018년 8월 13일부터 시행됩니다.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="./privacy.html" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="./terms.html" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="./location.html" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>

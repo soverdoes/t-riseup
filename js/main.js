@@ -14,7 +14,63 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderAutoHide();
   initMobileMenu();
   initCaseFilter();
+  initContactForm();
 });
+
+/* ============ Contact form (no backend yet — validates + reports) ============ */
+function initContactForm() {
+  const form = document.querySelector('[data-contact-form]');
+  if (!form) return;
+  const statusEl = form.querySelector('[data-contact-status]');
+
+  const t = (key, fallback) => {
+    try {
+      if (window.i18n && typeof window.i18n.t === 'function') {
+        const v = window.i18n.t(key);
+        if (v && v !== key) return v;
+      }
+    } catch (e) {}
+    return fallback;
+  };
+
+  const showStatus = (msg, state) => {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.dataset.state = state;
+    statusEl.hidden = false;
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Basic validation: all required fields filled + agree checked
+    const required = form.querySelectorAll('[required]');
+    let ok = true;
+    required.forEach((el) => {
+      if (el.type === 'checkbox' ? !el.checked : !String(el.value || '').trim()) {
+        ok = false;
+        el.classList.add('is-error');
+      } else {
+        el.classList.remove('is-error');
+      }
+    });
+    if (!ok) {
+      showStatus(t('contact.status.error', '입력 내용을 다시 확인해 주세요.'), 'error');
+      return;
+    }
+
+    // Success: native alert acknowledges receipt, then redirect to home.
+    // (Wire to a real endpoint later — keep alert+redirect UX.)
+    window.alert(t('contact.status.success', '문의가 정상적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'));
+    window.location.href = './index.html';
+  });
+
+  // Clear field-level error styling as user edits
+  form.addEventListener('input', (e) => {
+    const el = e.target;
+    if (el.classList && el.classList.contains('is-error')) el.classList.remove('is-error');
+  });
+}
 
 /* ============ Cases page filter (no-op if no chips on the page) ============ */
 function initCaseFilter() {

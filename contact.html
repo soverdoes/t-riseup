@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>도입문의 · T-RiseUp</title>
+  <meta name="description" content="T-RiseUp 도입 문의 — 고객 맞춤형 모빌리티 SaaS 컨설팅을 신청하세요.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png';">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.pms">PMS Solution</span></a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.tms">TMS Solution</span></a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.rideus">K.RIDEUS</span></a>
+              <a href="./license.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.license">면허솔루션</span></a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link"><span data-i18n="nav.cases">도입사례</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="nav.contact">도입문의</span>
+        </a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero (slim banner, uniform 50% overlay, no badge) ============ -->
+    <section class="contact-hero">
+      <div class="contact-hero__banner" style="background-image: url('./images/contact-hero-bg.jpg');">
+        <h1 class="contact-hero__title" data-i18n="contact.hero.title">도입 문의</h1>
+      </div>
+    </section>
+
+    <!-- ============ Form ============ -->
+    <section class="section section--contact">
+      <!-- Decorative T-RiseUp watermark (desktop only, half-clipped off the left edge) -->
+      <div class="contact-watermark" aria-hidden="true">
+        <img src="./images/logo-color.svg" alt="" onerror="this.style.display='none'">
+      </div>
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: title + description -->
+          <div class="contact-intro">
+            <h2 class="contact-intro__title">
+              <span>Request</span><br>
+              <span>a Consultation</span>
+            </h2>
+            <p class="contact-intro__desc">
+              <span data-i18n="contact.intro.desc.line1">고객 맞춤형 서비스부터 경영 효율을 높이는</span><br>
+              <span data-i18n="contact.intro.desc.line2">IT 솔루션까지 디지털 경쟁력 강화와 성장을 위해</span><br>
+              <span data-i18n="contact.intro.desc.line3">당신의 비즈니스 파트너로 함께하겠습니다.</span>
+            </p>
+          </div>
+
+          <!-- Right: form -->
+          <form class="contact-form" data-contact-form novalidate>
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-company">
+                <span data-i18n="contact.field.company">소속</span>
+                <span class="contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="cf-company" name="company" class="contact-field__input"
+                     required
+                     data-i18n-attr="placeholder|contact.field.company.ph"
+                     placeholder="회사/기관명을 입력해 주세요">
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-name">
+                <span data-i18n="contact.field.name">이름</span>
+                <span class="contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="cf-name" name="name" class="contact-field__input"
+                     required
+                     data-i18n-attr="placeholder|contact.field.name.ph"
+                     placeholder="담당자명을 입력해 주세요">
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-phone">
+                <span data-i18n="contact.field.phone">연락처</span>
+                <span class="contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <input type="tel" id="cf-phone" name="phone" class="contact-field__input"
+                     required
+                     data-i18n-attr="placeholder|contact.field.phone.ph"
+                     placeholder="연락 가능한 연락처를 입력해 주세요">
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-email">
+                <span data-i18n="contact.field.email">이메일</span>
+                <span class="contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <input type="email" id="cf-email" name="email" class="contact-field__input"
+                     required
+                     data-i18n-attr="placeholder|contact.field.email.ph"
+                     placeholder="연락 가능한 이메일 주소를 입력해 주세요">
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-type">
+                <span data-i18n="contact.field.type">문의종류</span>
+                <span class="contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <div class="contact-field__select-wrap">
+                <select id="cf-type" name="type" class="contact-field__input contact-field__input--select" required>
+                  <option value="" disabled selected data-i18n="contact.field.type.ph">선택해 주세요.</option>
+                  <option value="pms" data-i18n="contact.field.type.pms">PMS - 모빌리티 솔루션</option>
+                  <option value="tms" data-i18n="contact.field.type.tms">TMS - 티켓 예약관리 솔루션</option>
+                  <option value="license" data-i18n="contact.field.type.license">면허 솔루션 - 플랫폼운송사업 면허</option>
+                  <option value="rideus" data-i18n="contact.field.type.rideus">K.RIDEUS - RIDEUS 통합 판매 채널</option>
+                  <option value="etc" data-i18n="contact.field.type.etc">협업 및 기타 문의</option>
+                </select>
+                <svg class="contact-field__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-field__label" for="cf-message">
+                <span data-i18n="contact.field.message">문의내용</span>
+                <span class="contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <textarea id="cf-message" name="message" class="contact-field__input contact-field__input--textarea"
+                        rows="5" required
+                        data-i18n-attr="placeholder|contact.field.message.ph"
+                        placeholder="문의 사항을 자유롭게 작성해 주세요"></textarea>
+            </div>
+
+            <label class="contact-agree">
+              <input type="checkbox" name="agree" required>
+              <span class="contact-agree__box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="4 12 10 18 20 6"/>
+                </svg>
+              </span>
+              <span class="contact-agree__text" data-i18n="contact.agree">개인정보처리방침에 동의합니다. (필수)</span>
+            </label>
+
+            <div class="contact-form__actions">
+              <button type="submit" class="btn btn--primary contact-form__submit">
+                <span data-i18n="contact.submit">보내기</span>
+              </button>
+            </div>
+
+            <p class="contact-form__status" data-contact-status hidden role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="./privacy.html" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="./terms.html" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="./location.html" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
