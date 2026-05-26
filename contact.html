@@ -143,8 +143,11 @@
 
             <!-- Formsubmit config (hidden) -->
             <input type="hidden" name="_subject" value="[T-RiseUp] 도입 문의 신규 접수">
-            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_template" value="box">
             <input type="hidden" name="_autoresponse" value="안녕하세요, 그라운드K입니다.&#10;&#10;T-RiseUp 도입 문의를 정상적으로 접수하였습니다.&#10;담당자 확인 후 영업일 기준 1~2일 이내에 연락드릴 예정입니다.&#10;&#10;감사합니다.&#10;Ground K · T-RiseUp 팀">
+            <!-- Reply-To set dynamically by JS to the submitter's 이메일 field
+                 (Formsubmit no longer auto-detects since the field name is 한글) -->
+            <input type="hidden" name="_replyto" data-replyto-target>
             <!-- Honeypot (hidden field; bots fill it → blocked) -->
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
@@ -153,7 +156,7 @@
                 <span data-i18n="contact.field.company">소속</span>
                 <span class="contact-field__required" aria-hidden="true">*</span>
               </label>
-              <input type="text" id="cf-company" name="company" class="contact-field__input"
+              <input type="text" id="cf-company" name="소속" class="contact-field__input"
                      required
                      data-i18n-attr="placeholder|contact.field.company.ph"
                      placeholder="회사/기관명을 입력해 주세요">
@@ -164,7 +167,7 @@
                 <span data-i18n="contact.field.name">이름</span>
                 <span class="contact-field__required" aria-hidden="true">*</span>
               </label>
-              <input type="text" id="cf-name" name="name" class="contact-field__input"
+              <input type="text" id="cf-name" name="이름" class="contact-field__input"
                      required
                      data-i18n-attr="placeholder|contact.field.name.ph"
                      placeholder="담당자명을 입력해 주세요">
@@ -175,7 +178,7 @@
                 <span data-i18n="contact.field.phone">연락처</span>
                 <span class="contact-field__required" aria-hidden="true">*</span>
               </label>
-              <input type="tel" id="cf-phone" name="phone" class="contact-field__input"
+              <input type="tel" id="cf-phone" name="연락처" class="contact-field__input"
                      required
                      data-i18n-attr="placeholder|contact.field.phone.ph"
                      placeholder="연락 가능한 연락처를 입력해 주세요">
@@ -186,7 +189,7 @@
                 <span data-i18n="contact.field.email">이메일</span>
                 <span class="contact-field__required" aria-hidden="true">*</span>
               </label>
-              <input type="email" id="cf-email" name="email" class="contact-field__input"
+              <input type="email" id="cf-email" name="이메일" class="contact-field__input"
                      required
                      data-i18n-attr="placeholder|contact.field.email.ph"
                      placeholder="연락 가능한 이메일 주소를 입력해 주세요">
@@ -198,13 +201,13 @@
                 <span class="contact-field__required" aria-hidden="true">*</span>
               </label>
               <div class="contact-field__select-wrap">
-                <select id="cf-type" name="type" class="contact-field__input contact-field__input--select" required>
+                <select id="cf-type" name="문의종류" class="contact-field__input contact-field__input--select" required>
                   <option value="" disabled selected data-i18n="contact.field.type.ph">선택해 주세요.</option>
-                  <option value="pms" data-i18n="contact.field.type.pms">PMS - 모빌리티 솔루션</option>
-                  <option value="tms" data-i18n="contact.field.type.tms">TMS - 티켓 예약관리 솔루션</option>
-                  <option value="license" data-i18n="contact.field.type.license">면허 솔루션 - 플랫폼운송사업 면허</option>
-                  <option value="rideus" data-i18n="contact.field.type.rideus">K.RIDEUS - RIDEUS 통합 판매 채널</option>
-                  <option value="etc" data-i18n="contact.field.type.etc">협업 및 기타 문의</option>
+                  <option value="PMS - 모빌리티 솔루션" data-i18n="contact.field.type.pms">PMS - 모빌리티 솔루션</option>
+                  <option value="TMS - 티켓 예약관리 솔루션" data-i18n="contact.field.type.tms">TMS - 티켓 예약관리 솔루션</option>
+                  <option value="면허 솔루션 - 플랫폼운송사업 면허" data-i18n="contact.field.type.license">면허 솔루션 - 플랫폼운송사업 면허</option>
+                  <option value="K.RIDEUS - RIDEUS 통합 판매 채널" data-i18n="contact.field.type.rideus">K.RIDEUS - RIDEUS 통합 판매 채널</option>
+                  <option value="협업 및 기타 문의" data-i18n="contact.field.type.etc">협업 및 기타 문의</option>
                 </select>
                 <svg class="contact-field__chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9"/>
@@ -217,14 +220,16 @@
                 <span data-i18n="contact.field.message">문의내용</span>
                 <span class="contact-field__required" aria-hidden="true">*</span>
               </label>
-              <textarea id="cf-message" name="message" class="contact-field__input contact-field__input--textarea"
+              <textarea id="cf-message" name="문의내용" class="contact-field__input contact-field__input--textarea"
                         rows="5" required
                         data-i18n-attr="placeholder|contact.field.message.ph"
                         placeholder="문의 사항을 자유롭게 작성해 주세요"></textarea>
             </div>
 
             <label class="contact-agree">
-              <input type="checkbox" name="agree" required>
+              <!-- name prefixed with _ → Formsubmit excludes it from the email body
+                   (still required to submit; just hidden from the receipt) -->
+              <input type="checkbox" name="_agree" required>
               <span class="contact-agree__box" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="4 12 10 18 20 6"/>

@@ -67,6 +67,12 @@ function initContactForm() {
     if (submitBtn) submitBtn.disabled = true;
     showStatus('전송 중...', 'pending');
 
+    // Copy 이메일 value into hidden _replyto so the receiver can hit Reply
+    // and reach the submitter directly (Formsubmit only auto-detects name="email").
+    const emailInput = form.querySelector('input[type="email"]');
+    const replyTo = form.querySelector('[data-replyto-target]');
+    if (emailInput && replyTo) replyTo.value = emailInput.value;
+
     try {
       const res = await fetch(endpoint, {
         method: 'POST',
