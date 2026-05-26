@@ -17,11 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
 });
 
-/* ============ Contact form (no backend yet — validates + reports) ============ */
+/* ============ Contact form (POSTs to Formsubmit AJAX endpoint) ============
+   Reads the recipient from the form's `action` attribute, so swapping emails
+   means changing only contact.html — no JS edit required. */
 function initContactForm() {
   const form = document.querySelector('[data-contact-form]');
   if (!form) return;
   const statusEl = form.querySelector('[data-contact-status]');
+  const submitBtn = form.querySelector('button[type="submit"], [type="submit"]');
 
   const t = (key, fallback) => {
     try {
@@ -40,7 +43,7 @@ function initContactForm() {
     statusEl.hidden = false;
   };
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Basic validation: all required fields filled + agree checked
@@ -59,10 +62,29 @@ function initContactForm() {
       return;
     }
 
-    // Success: native alert acknowledges receipt, then redirect to home.
-    // (Wire to a real endpoint later — keep alert+redirect UX.)
-    window.alert(t('contact.status.success', '문의가 정상적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'));
-    window.location.href = './index.html';
+    // POST to Formsubmit AJAX endpoint, then alert + redirect on success.
+    const endpoint = form.getAttribute('action');
+    if (submitBtn) submitBtn.disabled = true;
+    showStatus('전송 중...', 'pending');
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && (data.success === 'true' || data.success === true)) {
+        window.alert(t('contact.status.success', '문의가 정상적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'));
+        window.location.href = './index.html';
+        return;
+      }
+      throw new Error(data.message || 'submission failed');
+    } catch (err) {
+      if (submitBtn) submitBtn.disabled = false;
+      showStatus(t('contact.status.network', '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'), 'error');
+    }
   });
 
   // Clear field-level error styling as user edits

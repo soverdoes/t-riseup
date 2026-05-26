@@ -131,8 +131,23 @@
             </p>
           </div>
 
-          <!-- Right: form -->
-          <form class="contact-form" data-contact-form novalidate>
+          <!-- Right: form.
+               Backend: Formsubmit.co (no-signup). To switch recipient, change the email
+               in `action` below → push → confirm activation email at the new address.
+               Currently routing to sung774@groundk.com for testing; switch to
+               ops@groundk.com for production. -->
+          <form class="contact-form" data-contact-form
+                action="https://formsubmit.co/ajax/sung774@groundk.com"
+                method="POST"
+                novalidate>
+
+            <!-- Formsubmit config (hidden) -->
+            <input type="hidden" name="_subject" value="[T-RiseUp] 도입 문의 신규 접수">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="안녕하세요, 그라운드K입니다.&#10;&#10;T-RiseUp 도입 문의를 정상적으로 접수하였습니다.&#10;담당자 확인 후 영업일 기준 1~2일 이내에 연락드릴 예정입니다.&#10;&#10;감사합니다.&#10;Ground K · T-RiseUp 팀">
+            <!-- Honeypot (hidden field; bots fill it → blocked) -->
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
             <div class="contact-field">
               <label class="contact-field__label" for="cf-company">
                 <span data-i18n="contact.field.company">소속</span>

@@ -359,6 +359,7 @@ const DICT = {
     'contact.submit': '보내기',
     'contact.status.success': '문의가 정상적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.',
     'contact.status.error': '입력 내용을 다시 확인해 주세요.',
+    'contact.status.network': '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
   },
 
   en: {
@@ -713,6 +714,7 @@ const DICT = {
     'contact.submit': 'Send',
     'contact.status.success': 'Your inquiry has been received. We’ll get back to you shortly.',
     'contact.status.error': 'Please double-check your input.',
+    'contact.status.network': 'A network error occurred. Please try again in a moment.',
   },
 };
 
