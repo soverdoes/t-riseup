@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>K.RIDEUS · T-RiseUp</title>
+  <meta name="description" content="모빌리티 통합 판매 채널 RIDEUS 마켓플레이스 — T-RiseUp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png'; this.dataset.fallback='1';">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.pms">PMS Solution</span>
+              </a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.tms">TMS Solution</span>
+              </a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.rideus">K.RIDEUS</span>
+              </a>
+              <a href="./license.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.license">면허솔루션</span>
+              </a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link">
+              <span data-i18n="nav.cases">도입사례</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="nav.contact">도입문의</span>
+        </a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero ============ -->
+    <section class="sol-hero">
+      <div class="sol-hero__banner" style="background-image: url('./images/rideus-hero-bg.jpg');">
+        <h1 class="sol-hero__title">
+          <span data-i18n="rideus.hero.title.line1">모빌리티 통합 판매 채널</span><br>
+          <span data-i18n="rideus.hero.title.line2">RIDEUS 마켓플레이스</span>
+        </h1>
+        <span class="sol-hero__badge">K.RIDEUS</span>
+      </div>
+    </section>
+
+    <!-- ============ Intro ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="rideus-intro-head">
+          <div class="rideus-intro-head__text">
+            <h2 class="section__title" data-i18n="rideus.intro.title">고객과 모빌리티 운영사를 연결하는 마켓플레이스</h2>
+            <p class="section__desc">
+              <span data-i18n="rideus.intro.desc.line1">K.RIDEUS는 T-RiseUp 파트너 전용 판매 채널입니다.</span>
+              <br class="br-pc">
+              <span data-i18n="rideus.intro.desc.line2">PMS와 TMS 솔루션으로 운영중인 상품을 통합하여 K.RIDEUS의 핵심 고객에게 연결합니다.</span>
+            </p>
+          </div>
+          <a href="#" class="rideus-intro__more">
+            <span data-i18n="rideus.intro.more">K.RIDEUS 둘러보기</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="sol-intro__image" style="background-image: url('./images/rideus-intro.jpg');" data-placeholder="rideus-intro.jpg"></div>
+      </div>
+    </section>
+
+    <!-- ============ How it connects (4 steps) ============ -->
+    <section class="section section--gray">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="rideus.steps.title">K.RIDEUS 어떻게 연결되나요?</h2>
+        </div>
+
+        <div class="step-grid">
+          <article class="step-card">
+            <div class="step-card__body">
+              <span class="step-card__badge" data-i18n="rideus.step.1.badge">Step.1</span>
+              <h3 class="step-card__title" data-i18n="rideus.step.1.title">T-RiseUp 도입</h3>
+              <p class="step-card__desc" data-i18n="rideus.step.1.desc">PMS 또는 TMS로 차량 · 노선 운영 시작</p>
+            </div>
+            <div class="step-card__icon" style="background-image: url('./images/rideus-step-1.png');" data-placeholder="step1"></div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-card__body">
+              <span class="step-card__badge" data-i18n="rideus.step.2.badge">Step.2</span>
+              <h3 class="step-card__title" data-i18n="rideus.step.2.title">K.RIDEUS 자동 입점</h3>
+              <p class="step-card__desc" data-i18n="rideus.step.2.desc">별도 신청 없이 마켓플레이스 상품 등록</p>
+            </div>
+            <div class="step-card__icon" style="background-image: url('./images/rideus-step-2.png');" data-placeholder="step2"></div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-card__body">
+              <span class="step-card__badge" data-i18n="rideus.step.3.badge">Step.3</span>
+              <h3 class="step-card__title" data-i18n="rideus.step.3.title">고객 노출</h3>
+              <p class="step-card__desc" data-i18n="rideus.step.3.desc">이동 수요 고객에게 목적지 별 상품 노출</p>
+            </div>
+            <div class="step-card__icon" style="background-image: url('./images/rideus-step-3.png');" data-placeholder="step3"></div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-card__body">
+              <span class="step-card__badge" data-i18n="rideus.step.4.badge">Step.4</span>
+              <h3 class="step-card__title" data-i18n="rideus.step.4.title">유통 채널 확장</h3>
+              <p class="step-card__desc" data-i18n="rideus.step.4.desc">기존 운영은 유지하면서 추가 수익 채널 확보</p>
+            </div>
+            <div class="step-card__icon" style="background-image: url('./images/rideus-step-4.png');" data-placeholder="step4"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Growth (3 feature rows) ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title">
+            <span data-i18n="rideus.growth.title.line1">단순한 판매 채널을 넘어,</span><br>
+            <span data-i18n="rideus.growth.title.line2">모빌리티 비즈니스의 성장으로</span>
+          </h2>
+        </div>
+
+        <div class="arch-rows">
+          <div class="arch-row">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title" data-i18n="rideus.growth.1.title">이동 목적 기반의 전략적 수요 매칭</h3>
+              <p class="arch-row__desc" data-i18n="rideus.growth.1.desc">K.RIDEUS는 공항, 공연, 레저 등 이동 목적이 명확한 고객이 유입되는 채널입니다. 목적지 기반 매칭을 통해 높은 예약 전환율을 제공합니다.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/rideus-growth-1.jpg');" data-placeholder="rideus-growth-1.jpg"></div>
+          </div>
+
+          <div class="arch-row arch-row--reverse">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title" data-i18n="rideus.growth.2.title">운영은 스마트하게, 매출은 극대화</h3>
+              <p class="arch-row__desc" data-i18n="rideus.growth.2.desc">PMS와 TMS가 실시간 연동되어 오버부킹 걱정 없는 재고 관리가 가능합니다. K.RIDEUS의 혁신적인 시스템으로 매출 변화를 경험하세요.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/rideus-growth-2.jpg');" data-placeholder="rideus-growth-2.jpg"></div>
+          </div>
+
+          <div class="arch-row">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title" data-i18n="rideus.growth.3.title">데이터 기반의 비즈니스 인사이트</h3>
+              <p class="arch-row__desc" data-i18n="rideus.growth.3.desc">통합 마켓플레이스에서 발생하는 예약 데이터를 분석하여 최적의 상품 구성과 고객의 목적지에 딱 맞는 이동 옵션을 제안합니다.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/rideus-growth-3.jpg');" data-placeholder="rideus-growth-3.jpg"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Categories (5 use-case cards) ============ -->
+    <section class="section section--gray">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="rideus.cat.title">맞춤형 이동서비스의 시작 K.RIDEUS</h2>
+          <p class="section__desc">
+            <span data-i18n="rideus.cat.desc.line1">목적지가 결정되는 순간, 이동의 니즈는 시작됩니다.</span>
+            <br class="br-pc">
+            <span data-i18n="rideus.cat.desc.line2">K.RIDEUS는 고객의 여정과 파트너를 잇는 가장 스마트한 방법입니다.</span>
+          </p>
+        </div>
+
+        <div class="cat-grid">
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/rideus-cat-airport.png');" data-placeholder="airport"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="rideus.cat.1">공항 · 항만</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/rideus-cat-leisure.png');" data-placeholder="leisure"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="rideus.cat.2">레저</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/rideus-cat-themepark.png');" data-placeholder="themepark"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="rideus.cat.3">테마파크 · 쇼핑</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/rideus-cat-event.png');" data-placeholder="event"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="rideus.cat.4">공연 · 이벤트</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/rideus-cat-sports.png');" data-placeholder="sports"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="rideus.cat.5">스포츠</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final CTA ============ -->
+    <section class="cta-section cta-section--rideus">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">
+          <span data-i18n="cta.title.line1">지금 바로 T-RiseUp의</span><br>
+          <span data-i18n="cta.title.line2">가치를 확인하세요.</span>
+        </h2>
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="cta.button">도입문의</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="#" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="#" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="#" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>

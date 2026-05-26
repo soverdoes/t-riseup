@@ -1,0 +1,186 @@
+/**
+ * Base + Layout
+ * Uses design tokens from /design-system/design-tokens.css
+ */
+
+/* ============ Reset ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--tx-primary);
+  background: var(--bg-primary);
+  line-height: 1.5;
+  /* Prevent Korean words from breaking mid-character */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ============ Layout container ============ */
+.container {
+  max-width: 1820px;
+  margin-inline: auto;
+  padding-inline: 160px;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    padding-inline: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
+/* ============ Section base ============ */
+.section {
+  padding: 120px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 0;
+  }
+}
+
+/* ============ Responsive line breaks ============ */
+/* .br-pc: desktop-only break (hidden on mobile). .br-mo: mobile-only break. */
+.br-mo { display: none; }
+@media (max-width: 640px) {
+  .br-pc { display: none; }
+  .br-mo { display: inline; }
+}
+
+.section__header {
+  margin-bottom: 40px;
+}
+
+.section__title {
+  font-family: var(--font-family);
+  font-size: var(--fs-display-2);
+  font-weight: var(--fw-bold);
+  color: var(--tx-primary);
+  line-height: 1.2;
+}
+
+.section__desc {
+  margin-top: 20px;
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-medium);
+  color: var(--tx-secondary);
+  line-height: 1.4;
+}
+
+@media (max-width: 1280px) {
+  .section__title { font-size: 40px; }
+  .section__desc { font-size: 18px; }
+}
+@media (max-width: 768px) {
+  .section__title { font-size: 28px; }
+  .section__desc { font-size: 16px; }
+  .section__header { margin-bottom: 40px; text-align: center; }
+}
+
+/* ============ Scroll reveal (fade + slide-up, staggered per element) ============ */
+/* Hide each non-hero section from first paint (only when JS is active) so its
+   inner elements can be prepared before they're revealed — prevents flash.
+   JS adds .reveal-ready to the section once its units are tagged. */
+.js main > section:not(.hero):not(.reveal-ready) {
+  opacity: 0;
+}
+/* Hero keeps its background; only the copy + buttons fade up (pre-hidden at first paint) */
+.js .hero__title,
+.js .hero__subtitle,
+.js .hero__actions {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.js .reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);   /* 3d → promotes to GPU layer up-front (avoids start jank) */
+  will-change: opacity, transform;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+.js .reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+/* Drop the GPU-layer hint once revealed to free memory */
+.js .reveal.reveal-done {
+  will-change: auto;
+}
+
+/* Safety net: reveal everything if the script never initialized */
+.reveal-fallback main > section:not(.hero),
+.reveal-fallback .reveal,
+.reveal-fallback .hero__title,
+.reveal-fallback .hero__subtitle,
+.reveal-fallback .hero__actions {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js main > section:not(.hero):not(.reveal-ready),
+  .js .reveal,
+  .js .hero__title,
+  .js .hero__subtitle,
+  .js .hero__actions {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

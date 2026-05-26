@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>PMS Solution · T-RiseUp</title>
+  <meta name="description" content="예약·배차·관제·정산 통합 PMS Solution — T-RiseUp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png'; this.dataset.fallback='1';">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.pms">PMS Solution</span>
+              </a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.tms">TMS Solution</span>
+              </a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.rideus">K.RIDEUS</span>
+              </a>
+              <a href="./license.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.license">면허솔루션</span>
+              </a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link">
+              <span data-i18n="nav.cases">도입사례</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="nav.contact">도입문의</span>
+        </a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero ============ -->
+    <section class="sol-hero">
+      <div class="sol-hero__banner" style="background-image: url('./images/pms-hero-bg.jpg');">
+        <h1 class="sol-hero__title">
+          <span data-i18n="pms.hero.title.line1">예약부터 정산까지,</span><br>
+          <span data-i18n="pms.hero.title.line2">수송 운영의 모든 것을 하나로</span>
+        </h1>
+        <span class="sol-hero__badge">PMS</span>
+      </div>
+    </section>
+
+    <!-- ============ Intro ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="pms.intro.title">의전 · 수송 사업자를 위한 자산 관리 솔루션</h2>
+          <p class="section__desc">
+            <span data-i18n="pms.intro.desc.line1">T-RiseUp PMS는 단순한 배차 관리를 넘어 업무 혁신을 위한 디지털 솔루션입니다.</span><br>
+            <span data-i18n="pms.intro.desc.line2">예약 · 배차 · 관제 · 정산업무를 통합하고 자동 배차 기능으로 반복 업무를 단순화하여 운영 효율을 극대화합니다.</span>
+          </p>
+        </div>
+        <div class="sol-intro__image" style="background-image: url('./images/pms-dashboard.jpg');" data-placeholder="pms-dashboard.jpg"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4-channel architecture ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="pms.arch.title">4채널 아키텍쳐</h2>
+          <p class="section__desc">
+            <span data-i18n="pms.arch.desc.s1">PMS는 예약과 배차 관리를 위한 4개의 전용 채널이 실시간 연결되어</span>
+            <br class="br-pc">
+            <span data-i18n="pms.arch.desc.s2">모빌리티 운영의 모든 과정을</span>
+            <br class="br-mo">
+            <span data-i18n="pms.arch.desc.s3">효율적으로 관리합니다.</span>
+          </p>
+        </div>
+
+        <div class="arch-rows">
+          <div class="arch-row">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title">DISPATCH</h3>
+              <p class="arch-row__desc" data-i18n="pms.arch.dispatch.desc">예약·배차·관제·정산을 관리하는 올인원 운영 솔루션입니다. 실시간 매출과 운행 현황을 대시보드로 관리하고 자동 재고관리로 최적의 배차 스케줄을 지원합니다.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/pms-arch-dispatch.jpg');" data-placeholder="pms-arch-dispatch.jpg"></div>
+          </div>
+
+          <div class="arch-row arch-row--reverse">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title">CONCIERGE</h3>
+              <p class="arch-row__desc" data-i18n="pms.arch.concierge.desc">B2B 전용 예약 채널을 통해 직접 예약하고 배차 정보를 공유받습니다. 실시간 관제를 통해 VIP 맞춤형 이동 서비스를 지원합니다.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/pms-arch-concierge.jpg');" data-placeholder="pms-arch-concierge.jpg"></div>
+          </div>
+
+          <div class="arch-row">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title">PARTNERS</h3>
+              <p class="arch-row__desc" data-i18n="pms.arch.partners.desc">기사 전용 앱으로 실시간 배차 확인부터 디지털 수행 보고까지 완벽한 비대면 업무 프로세스를 구현합니다. 배차 가용 상태 설정을 통해 현장 운영 효율을 극대화합니다.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/pms-arch-partners.jpg');" data-placeholder="pms-arch-partners.jpg"></div>
+          </div>
+
+          <div class="arch-row arch-row--reverse">
+            <div class="arch-row__text">
+              <h3 class="arch-row__title">BOOKING</h3>
+              <p class="arch-row__desc" data-i18n="pms.arch.booking.desc">자사 브랜드의 D2C채널로 글로벌 고객 경험을 혁신합니다. 다국어 예약 및 글로벌 결제 시스템으로 고객 접점을 강화하고 차별화된 브랜드 가치를 확장합니다.</p>
+            </div>
+            <div class="arch-row__image" style="background-image: url('./images/pms-arch-booking.jpg');" data-placeholder="pms-arch-booking.jpg"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2-mode dispatch ============ -->
+    <section class="section mode-section">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="pms.mode.title">2모드 배차방식</h2>
+          <p class="section__desc">
+            <span data-i18n="pms.mode.desc.line1">상황에 맞는 배차 방식을 선택해</span><br>
+            <span data-i18n="pms.mode.desc.line2">소규모 운영부터 VIP 의전·대규모 행사까지 유연하게 대응합니다.</span>
+          </p>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode-card">
+            <div class="mode-card__body">
+              <div class="mode-card__head">
+                <h3 class="mode-card__title" data-i18n="pms.mode.request.title">배차 요청형</h3>
+                <p class="mode-card__lead" data-i18n="pms.mode.request.lead">기사가 직접 요청을 수락하는 온디맨드 방식으로 소규모 운영에 적합합니다.</p>
+              </div>
+              <ul class="mode-card__list">
+                <li data-i18n="pms.mode.request.f1">배차 요청 → 기사 수락 → 배정 확정</li>
+                <li data-i18n="pms.mode.request.f2">소규모 관광대절 · 택시 최적</li>
+                <li data-i18n="pms.mode.request.f3">기사 부하 자동 분산</li>
+              </ul>
+            </div>
+            <div class="mode-card__illust" style="background-image: url('./images/pms-mode-request.png');" data-placeholder="pms-mode-request"></div>
+          </article>
+
+          <article class="mode-card">
+            <div class="mode-card__body">
+              <div class="mode-card__head">
+                <h3 class="mode-card__title" data-i18n="pms.mode.confirm.title">배차 확정형</h3>
+                <p class="mode-card__lead" data-i18n="pms.mode.confirm.lead">관리자가 직접 기사를 지정하는 방식으로 VIP 의전·대규모 운영에 적합합니다.</p>
+              </div>
+              <ul class="mode-card__list">
+                <li data-i18n="pms.mode.confirm.f1">관리자 직접 배차 지정</li>
+                <li data-i18n="pms.mode.confirm.f2">VIP 의전 전용 워크플로우</li>
+                <li data-i18n="pms.mode.confirm.f3">APEC 수송 포탈 실적 검증</li>
+              </ul>
+            </div>
+            <div class="mode-card__illust" style="background-image: url('./images/pms-mode-confirm.png');" data-placeholder="pms-mode-confirm"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Core features ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="pms.feat.title">핵심기능</h2>
+          <p class="section__desc" data-i18n="pms.feat.desc">예약부터 정산까지 모빌리티 운영의 전 과정을 통합 지원합니다.</p>
+        </div>
+
+        <div class="feat-grid">
+          <article class="feat-card">
+            <div class="feat-card__text">
+              <h3 class="feat-card__title" data-i18n="pms.feat.1.title">예약 관리</h3>
+              <p class="feat-card__desc" data-i18n="pms.feat.1.desc">전화 · 메일 · 메신저로 흩어진 예약을 하나의 온라인 시스템으로 통합 관리하여 잦은 스케줄 변경도 완벽히 대응합니다.</p>
+            </div>
+            <div class="feat-card__image" style="background-image: url('./images/pms-feat-reservation.jpg');" data-placeholder="pms-feat-reservation.jpg"></div>
+          </article>
+
+          <article class="feat-card">
+            <div class="feat-card__text">
+              <h3 class="feat-card__title" data-i18n="pms.feat.2.title">자원 관리</h3>
+              <p class="feat-card__desc" data-i18n="pms.feat.2.desc">차량 · 기사 · 요금 · 고객정보, 운행정보 등 운수 기업의 핵심 자산을 등록하고 관리합니다.</p>
+            </div>
+            <div class="feat-card__image" style="background-image: url('./images/pms-feat-resource.jpg');" data-placeholder="pms-feat-resource.jpg"></div>
+          </article>
+
+          <article class="feat-card">
+            <div class="feat-card__text">
+              <h3 class="feat-card__title" data-i18n="pms.feat.3.title">정산 관리</h3>
+              <p class="feat-card__desc" data-i18n="pms.feat.3.desc">결제 금액 확인, 미수금 미지급금 처리, 자동 인보이스 발행으로 체계적인 정산관리를 지원합니다.</p>
+            </div>
+            <div class="feat-card__image" style="background-image: url('./images/pms-feat-settlement.jpg');" data-placeholder="pms-feat-settlement.jpg"></div>
+          </article>
+
+          <article class="feat-card">
+            <div class="feat-card__text">
+              <h3 class="feat-card__title" data-i18n="pms.feat.4.title">실시간 위치 관제</h3>
+              <p class="feat-card__desc" data-i18n="pms.feat.4.desc">운행중인 차량의 위치를 한 화면에서 파악하고, 실시간 도로 교통상황 연계로 교통정체, 긴급상황에 즉시 대응합니다.</p>
+            </div>
+            <div class="feat-card__image" style="background-image: url('./images/pms-feat-tracking.jpg');" data-placeholder="pms-feat-tracking.jpg"></div>
+          </article>
+
+          <article class="feat-card">
+            <div class="feat-card__text">
+              <h3 class="feat-card__title" data-i18n="pms.feat.5.title">전세계 항공편 연동</h3>
+              <p class="feat-card__desc" data-i18n="pms.feat.5.desc">전세계 입 · 출국 항공 정보를 실시간 트래킹하여 차량의 탄력적인 현장 대기가 가능합니다.</p>
+            </div>
+            <div class="feat-card__image" style="background-image: url('./images/pms-feat-flight.jpg');" data-placeholder="pms-feat-flight.jpg"></div>
+          </article>
+
+          <article class="feat-card">
+            <div class="feat-card__text">
+              <h3 class="feat-card__title" data-i18n="pms.feat.6.title">AI 최적 배차</h3>
+              <p class="feat-card__desc" data-i18n="pms.feat.6.desc">기사 위치, 차량 상태, 고객 요구를 종합 분석하여 최적의 기사를 배치하고 가용 차량 분석으로 공차율을 최소화합니다.</p>
+            </div>
+            <div class="feat-card__image" style="background-image: url('./images/pms-feat-ai.jpg');" data-placeholder="pms-feat-ai.jpg"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final CTA ============ -->
+    <section class="cta-section cta-section--pms">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">
+          <span data-i18n="cta.title.line1">지금 바로 T-RiseUp의</span><br>
+          <span data-i18n="cta.title.line2">가치를 확인하세요.</span>
+        </h2>
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="cta.button">도입문의</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="#" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="#" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="#" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>

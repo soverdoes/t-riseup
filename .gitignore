@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.cursor/
+.claude/
+
+# Logs / temp
+*.log
+*.tmp
+
+# Build (reserved — currently a no-build static site)
+node_modules/
+dist/
+.cache/
+
+# Python tool artifacts
+__pycache__/
+*.pyc

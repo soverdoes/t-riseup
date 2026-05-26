@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>면허솔루션 · T-RiseUp</title>
+  <meta name="description" content="타입1 면허, 자체개발 없이 준비하세요 — 9개 심사 영역 검증 완료 · T-RiseUp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png'; this.dataset.fallback='1';">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.pms">PMS Solution</span>
+              </a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.tms">TMS Solution</span>
+              </a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.rideus">K.RIDEUS</span>
+              </a>
+              <a href="./license.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.license">면허솔루션</span>
+              </a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link">
+              <span data-i18n="nav.cases">도입사례</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="nav.contact">도입문의</span>
+        </a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero ============ -->
+    <section class="sol-hero">
+      <div class="sol-hero__banner" style="background-image: url('./images/license-hero-bg.jpg');">
+        <h1 class="sol-hero__title">
+          <span data-i18n="license.hero.title.line1">타입1 면허,</span><br>
+          <span data-i18n="license.hero.title.line2">자체개발 없이 준비하세요</span>
+        </h1>
+        <span class="sol-hero__badge">면허솔루션</span>
+      </div>
+    </section>
+
+    <!-- ============ Problems ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="license.prob.title">타입1면허, 자체 개발의 현실</h2>
+          <p class="section__desc" data-i18n="license.prob.desc">플랫폼운송사업 면허를 위한 시스템 자체개발, 이런 문제가 있습니다.</p>
+        </div>
+
+        <div class="prob-grid">
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/license-prob-1.png');" data-placeholder="cost"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="license.prob.1">비용 부담</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/license-prob-2.png');" data-placeholder="time"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="license.prob.2">시간 부담</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/license-prob-3.png');" data-placeholder="people"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="license.prob.3">인력 부재</h3>
+            </div>
+          </article>
+          <article class="mychannel-card">
+            <div class="mychannel-card__icon" style="background-image: url('./images/license-prob-4.png');" data-placeholder="pass"></div>
+            <div class="mychannel-card__text">
+              <h3 class="mychannel-card__title" data-i18n="license.prob.4">통과 불확실성</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Solution: 9 verified areas ============ -->
+    <section class="section section--gray">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="license.sol.title">T-RiseUp의 해법, 9개 영역 검증 완료</h2>
+          <p class="section__desc" data-i18n="license.sol.desc">플랫폼운송사업 면허를 위한 9개 심사 영역, 이미 준비되어 있습니다.</p>
+        </div>
+
+        <div class="area-grid">
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-1.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.1.title">운송정보 관리</h3>
+              <p class="area-card__desc" data-i18n="license.area.1.desc">운송 데이터 수집 · 저장 · 관리 체계</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-2.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.2.title">차량 및 기사 관리</h3>
+              <p class="area-card__desc" data-i18n="license.area.2.desc">차량 등록 · 기사 자격 · 운행이력 관리</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-3.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.3.title">배차 시스템</h3>
+              <p class="area-card__desc" data-i18n="license.area.3.desc">자동 배차 · 수동 배차 · 자동 재고 기반 배차 최적화</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-4.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.4.title">실시간 관제</h3>
+              <p class="area-card__desc" data-i18n="license.area.4.desc">GPS 기반 운행 모니터링, 실시간 교통현황</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-5.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.5.title">결제 시스템</h3>
+              <p class="area-card__desc" data-i18n="license.area.5.desc">전자결제 · 요금 산정 · 결제 수단 관리</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-6.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.6.title">정산 시스템</h3>
+              <p class="area-card__desc" data-i18n="license.area.6.desc">기사 · 파트너사 정산 자동화</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-7.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.7.title">안전 관리</h3>
+              <p class="area-card__desc" data-i18n="license.area.7.desc">돌발 감지 · 사고 대응 · 안전 프로토콜</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-8.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.8.title">이용자 보호</h3>
+              <p class="area-card__desc" data-i18n="license.area.8.desc">개인정보보호 · 민원 처리</p>
+            </div>
+          </article>
+          <article class="area-card">
+            <div class="area-card__icon" style="background-image: url('./images/license-area-9.png');"></div>
+            <div class="area-card__text">
+              <h3 class="area-card__title" data-i18n="license.area.9.title">데이터 보안</h3>
+              <p class="area-card__desc" data-i18n="license.area.9.desc">암호화 · 접근 제어 · 백업 · 보안 인증</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Success case (WIZMO) ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <h2 class="section__title" data-i18n="license.case.title">도입 성공사례</h2>
+          <p class="section__desc" data-i18n="license.case.desc">T-RiseUp으로 타입1 면허 심사를 통과했습니다.</p>
+        </div>
+
+        <div class="license-case" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./images/license-case-bg.jpg');">
+          <div class="license-case__deco" style="background-image: url('./images/license-case-deco.png');"></div>
+          <div class="license-case__head">
+            <h3 class="license-case__brand">WIZMO</h3>
+            <div class="license-case__brands">
+              <span class="license-case__pill" data-i18n="license.case.company">위즈모빌리티</span>
+              <div class="license-case__badges">
+                <div class="license-case__logo" style="background-image: url('./images/license-wizmo-1.png');"></div>
+                <div class="license-case__logo" style="background-image: url('./images/license-wizmo-2.png');"></div>
+              </div>
+            </div>
+          </div>
+          <div class="license-case__stats">
+            <div class="license-case__stat">
+              <span class="license-case__stat-num" data-i18n="license.case.stat.1.num">0원</span>
+              <span class="license-case__stat-label" data-i18n="license.case.stat.1.label">자체 개발 비용</span>
+            </div>
+            <div class="license-case__stat">
+              <span class="license-case__stat-num" data-i18n="license.case.stat.2.num">100%</span>
+              <span class="license-case__stat-label" data-i18n="license.case.stat.2.label">심사 9개 영역 충족</span>
+            </div>
+            <div class="license-case__stat">
+              <span class="license-case__stat-num" data-i18n="license.case.stat.3.num">2주</span>
+              <span class="license-case__stat-label" data-i18n="license.case.stat.3.label">심사 준비 기간</span>
+            </div>
+            <div class="license-case__stat">
+              <span class="license-case__stat-num" data-i18n="license.case.stat.4.num">풀서포트</span>
+              <span class="license-case__stat-label" data-i18n="license.case.stat.4.label">심사 대응 지원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final CTA ============ -->
+    <section class="cta-section cta-section--license">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">
+          <span data-i18n="cta.title.line1">지금 바로 T-RiseUp의</span><br>
+          <span data-i18n="cta.title.line2">가치를 확인하세요.</span>
+        </h2>
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="cta.button">도입문의</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="#" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="#" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="#" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>

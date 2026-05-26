@@ -1,0 +1,736 @@
+/**
+ * Solution detail PAGE styles (PMS / TMS) — shared.
+ * Builds on design-tokens.css + main.css (.container, .section, .section__*).
+ */
+
+/* ============ Centered section header variant ============ */
+.section__header--center {
+  text-align: center;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* ============ Shared image placeholder behavior ============ */
+.sol-intro__image,
+.arch-row__image,
+.mode-card__illust,
+.feat-card__image,
+.showcase-card__image,
+.mychannel-card__icon,
+.step-card__icon {
+  position: relative;
+  background-color: var(--gray-200);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--tx-muted);
+}
+.sol-intro__image::after,
+.arch-row__image::after,
+.mode-card__illust::after,
+.feat-card__image::after,
+.showcase-card__image::after,
+.mychannel-card__icon::after,
+.step-card__icon::after {
+  content: attr(data-placeholder);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-caption-1);
+  font-weight: var(--fw-medium);
+  opacity: 0.5;
+}
+.sol-intro__image[style*="background-image"]::after,
+.arch-row__image[style*="background-image"]::after,
+.mode-card__illust[style*="background-image"]::after,
+.feat-card__image[style*="background-image"]::after,
+.showcase-card__image[style*="background-image"]::after,
+.mychannel-card__icon[style*="background-image"]::after,
+.step-card__icon[style*="background-image"]::after { display: none; }
+
+/* Transparent illustration icons (not filled photos) */
+.mychannel-card__icon,
+.step-card__icon { background-color: transparent; }
+
+/* ============ Hero banner ============ */
+.sol-hero {
+  padding: 0 50px;
+}
+.sol-hero__banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 100px 110px;
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #0E1430;          /* fallback behind hero image */
+  background-size: cover;
+  background-position: center;
+  color: var(--tx-white);
+}
+.sol-hero__banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 12, 32, 0.7) 0%, rgba(8, 12, 32, 0.25) 60%, rgba(8, 12, 32, 0.1) 100%);
+  z-index: 0;
+}
+.sol-hero__title,
+.sol-hero__badge { position: relative; z-index: 1; }
+.sol-hero__title {
+  font-family: var(--font-family);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display-3);     /* 60px */
+  line-height: 1.2;
+  color: var(--tx-white);
+}
+.sol-hero__badge {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: var(--fw-black);       /* 900 */
+  font-size: var(--fs-display-4);     /* 60px */
+  line-height: 1;
+  color: var(--tx-white);
+  white-space: nowrap;
+}
+
+/* ============ Intro (left head + wide image) ============ */
+.sol-intro__image {
+  width: 100%;
+  aspect-ratio: 1600 / 480;
+  border-radius: 24px;
+  background-size: cover;
+}
+
+/* ============ 4-channel architecture ============ */
+.arch-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.arch-row {
+  display: grid;
+  grid-template-columns: 640px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.arch-row--reverse {
+  grid-template-columns: 1fr 640px;
+}
+.arch-row--reverse .arch-row__image { order: -1; }
+
+.arch-row__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.arch-row__title {
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h2);            /* 32px */
+  line-height: 1.2;
+  color: var(--tx-primary);
+}
+.arch-row__desc {
+  font-family: var(--font-family);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-h5);            /* 20px */
+  line-height: 1.4;
+  color: var(--tx-secondary);
+}
+.arch-row__image {
+  aspect-ratio: 920 / 400;
+  border-radius: 24px;
+  background-size: cover;
+}
+
+/* ============ 2-mode dispatch ============ */
+.mode-section {
+  background-color: #F4F4F8;
+}
+.mode-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.mode-card {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  padding: 48px 50px;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+.mode-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mode-card__head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mode-card__title {
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h2);            /* 32px */
+  color: var(--tx-primary);
+}
+.mode-card__lead {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h5);
+  line-height: 1.4;
+  color: var(--tx-secondary);
+}
+.mode-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mode-card__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h5);
+  color: var(--tx-primary);
+}
+.mode-card__list li::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #1FB36B;
+  /* white check mark */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mode-card__illust {
+  flex: 0 0 300px;
+  align-self: stretch;
+  /* bleed past the card padding so the illustration sits flush to the
+     top / right / bottom edges of the card */
+  margin: -48px -50px -48px 0;
+  background-size: contain;
+  background-position: right bottom;
+  background-color: transparent;
+}
+/* TMS Booking cards: fixed 238px height + wider illustration to match Figma */
+.mode-card--booking {
+  height: 238px;
+}
+.mode-card--booking .mode-card__title { line-height: 1.2; }
+.mode-card--booking .mode-card__list li { line-height: 1; }
+.mode-card--booking .mode-card__illust {
+  flex-basis: 52%;
+  background-position: right center;
+}
+
+/* ============ Core features grid ============ */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--gray-200);
+}
+.feat-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.feat-card__title {
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h4);            /* 24px */
+  color: var(--tx-primary);
+}
+.feat-card__desc {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h5);            /* 20px */
+  line-height: 1.4;
+  color: var(--tx-secondary);
+}
+.feat-card__image {
+  margin-top: auto;
+  width: 100%;
+  aspect-ratio: 456 / 200;
+  border-radius: 20px;
+  background-size: cover;
+}
+
+/* ============ Gray section variant + content stack (TMS) ============ */
+.section--gray { background-color: #F4F4F8; }
+.sol-stack { display: flex; flex-direction: column; gap: 40px; }
+
+/* ============ Showcase cards (image + caption label) ============ */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+/* Centered variant: keeps 4-up card width but centers a partial row
+   (e.g. My Channel's 2 showcase cards) */
+.showcase-grid--center {
+  grid-template-columns: repeat(2, calc((100% - 60px) / 4));
+  justify-content: center;
+}
+.showcase-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.showcase-card__image {
+  width: 100%;
+  aspect-ratio: 385 / 190;
+  border-radius: 20px;
+  border: 1px solid var(--gray-200);
+  background-size: cover;
+}
+.showcase-card__caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--gray-200);
+}
+.showcase-card__label {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h5);            /* 20px */
+  color: var(--tx-primary);
+}
+.showcase-card__icon { flex: 0 0 auto; color: var(--tx-secondary); }
+
+/* ============ My Channel cards (icon on top + text) ============ */
+.mychannel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.mychannel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--gray-200);
+}
+.mychannel-card__icon {
+  flex: 0 0 auto;
+  width: 176px;
+  height: 114px;
+  background-size: contain;
+}
+.mychannel-card__text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+.mychannel-card__title {
+  font-family: var(--font-family);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-h4);            /* 24px */
+  color: var(--tx-primary);
+}
+.mychannel-card__desc {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-h5);            /* 20px */
+  line-height: 1.4;
+  color: var(--tx-secondary);
+}
+
+/* ============ K.RIDEUS: intro header (title/desc left + "more" link right) ============ */
+.rideus-intro-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.rideus-intro-head__text { flex: 1 1 auto; }
+.rideus-intro-head__text .section__desc { margin-top: 20px; }
+.rideus-intro__more {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+  font-size: var(--fs-h3);            /* 28px */
+  font-weight: var(--fw-medium);
+  color: var(--tx-primary);
+  white-space: nowrap;
+}
+.rideus-intro__more svg { width: 28px; height: 28px; }
+
+/* ============ K.RIDEUS: 4-step connect cards ============ */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--gray-200);
+}
+.step-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.step-card__badge {
+  align-self: flex-start;
+  padding: 3px 12px;
+  border-radius: 4px;
+  background-color: var(--interactive-accent-blue);
+  color: var(--tx-white);
+  font-family: var(--font-family);
+  font-size: var(--fs-body-2);        /* 16px */
+  font-weight: var(--fw-medium);
+}
+.step-card__title {
+  font-family: var(--font-family);
+  font-size: var(--fs-h4);            /* 24px */
+  font-weight: var(--fw-semibold);
+  color: var(--interactive-accent-blue);
+}
+.step-card__desc {
+  font-family: var(--font-family);
+  font-size: var(--fs-h5);            /* 20px */
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  color: var(--tx-primary);
+}
+.step-card__icon {
+  flex: 0 0 100px;
+  height: 80px;
+  background-size: contain;
+}
+
+/* ============ K.RIDEUS: 5-up category cards (reuse .mychannel-card) ============ */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* ============ License: 4-up problem grid (reuse .mychannel-card) ============ */
+.prob-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ============ License: 9-area solution grid (round icon + text) ============ */
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.area-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--gray-200);
+}
+.area-card__icon {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background-color: #F2F7F8;
+  background-size: 64px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.area-card__text {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.area-card__title {
+  font-family: var(--font-family);
+  font-size: var(--fs-h4);            /* 24px */
+  font-weight: var(--fw-semibold);
+  color: var(--tx-primary);
+}
+.area-card__desc {
+  font-family: var(--font-family);
+  font-size: var(--fs-h5);            /* 20px */
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  color: var(--tx-secondary);
+}
+
+/* ============ License: success case box (WIZMO) ============ */
+.license-case {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 68px;
+  padding: 60px 52px;
+  border-radius: 20px;
+  background-color: #0E1430;
+  background-size: cover;
+  background-position: center;
+  color: var(--tx-white);
+}
+.license-case__deco {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 481px;
+  height: 292px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
+  pointer-events: none;
+}
+.license-case__head,
+.license-case__stats { position: relative; z-index: 1; }
+.license-case__head {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.license-case__brand {
+  font-family: var(--font-family);
+  font-size: var(--fs-display-2);     /* 48px */
+  font-weight: var(--fw-bold);
+  color: var(--tx-white);
+}
+.license-case__brands {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.license-case__badges {
+  display: flex;
+  gap: 13px;
+}
+.license-case__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;                       /* match the app-store badge height */
+  padding: 0 24px;
+  border-radius: 10px;
+  background-color: var(--interactive-accent-blue);
+  color: var(--tx-white);
+  font-family: var(--font-family);
+  font-size: var(--fs-body-1);        /* 18px */
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
+.license-case__logo {
+  width: 144px;
+  height: 48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.license-case__stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 32px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.license-case__stat {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.license-case__stat + .license-case__stat {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 20px;
+}
+.license-case__stat-num {
+  font-family: var(--font-family);
+  font-size: var(--fs-h4);            /* 24px */
+  font-weight: var(--fw-bold);
+  color: var(--tx-white);
+}
+.license-case__stat-label {
+  font-family: var(--font-family);
+  font-size: var(--fs-h5);            /* 20px */
+  font-weight: var(--fw-medium);
+  color: var(--tx-white);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 1280px) {
+  .sol-hero__title { font-size: 44px; }
+  .sol-hero__badge { font-size: 44px; }
+  .sol-hero__banner { padding: 72px 60px; }
+}
+@media (max-width: 1024px) {
+  .arch-row,
+  .arch-row--reverse { grid-template-columns: 1fr; gap: 24px; }
+  .arch-row--reverse .arch-row__image { order: 0; }
+  .mode-grid { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: repeat(2, 1fr); }
+  .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+  .mychannel-grid { grid-template-columns: 1fr; }
+  .step-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .prob-grid { grid-template-columns: repeat(2, 1fr); }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .sol-hero { padding: 0 24px; }
+  .sol-hero__banner { flex-direction: column; align-items: flex-start; padding: 48px 28px; border-radius: 24px; }
+  .sol-hero__title { font-size: 32px; }
+  .sol-hero__badge { font-size: 32px; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .mode-card { flex-direction: column; align-items: stretch; }
+  .mode-card--booking { height: auto; }
+  .mode-card__illust {
+    width: 100%;
+    flex-basis: auto;
+    min-height: 160px;
+    margin: 0 -50px -48px 0;   /* keep flush to bottom/right on mobile too */
+    background-position: right bottom;
+  }
+}
+
+/* ============ Mobile (M-PMS / M-TMS, 360px frame) ============ */
+@media (max-width: 640px) {
+  /* Section headers: intro left-aligned, others centered; tight gaps */
+  .section__header { margin-bottom: 20px; text-align: left; }
+  .section__header--center { text-align: center; }
+  .section__desc { margin-top: 12px; }
+
+  /* Hero banner: vertical stack, 28px title / 32px badge */
+  .sol-hero { padding: 0 16px; }
+  .sol-hero__banner { padding: 48px 32px; border-radius: 16px; gap: 40px; }
+  .sol-hero__title { font-size: 28px; }
+  .sol-hero__badge { font-size: 32px; }
+
+  /* Intro image */
+  .sol-intro__image { aspect-ratio: 328 / 160; border-radius: 16px; }
+
+  /* 4-channel: stacked title→desc→image, all 8px apart; rows 40px apart */
+  .arch-rows { gap: 40px; }
+  .arch-row,
+  .arch-row--reverse { gap: 8px; }
+  .arch-row__text { gap: 8px; }
+  .arch-row__title { font-size: 20px; }
+  .arch-row__desc { font-size: 16px; }
+  .arch-row__image { aspect-ratio: 328 / 160; border-radius: 16px; }
+
+  /* TMS TIS: stronger grouping — tight title↔desc, rows clearly separated
+     (scoped so PMS 4-channel keeps its Figma spec) */
+  .arch-rows--tis { gap: 48px; }
+  .arch-rows--tis .arch-row,
+  .arch-rows--tis .arch-row--reverse { gap: 12px; }
+  .arch-rows--tis .arch-row__text { gap: 4px; }
+
+  /* 2-mode: cards stacked, no illustration on mobile */
+  .mode-grid { gap: 20px; }
+  .mode-card { padding: 20px; border-radius: 16px; gap: 0; }
+  .mode-card__illust { display: none; }
+  .mode-card__body { gap: 24px; }
+  .mode-card__title { font-size: 20px; }
+  .mode-card__lead { font-size: 16px; }
+  .mode-card__list li { font-size: 16px; }
+
+  /* Core features: single column, 12px gap */
+  .feat-grid { gap: 12px; }
+  .feat-card { padding: 20px 16px; gap: 16px; border-radius: 16px; }
+  .feat-card__text { gap: 4px; }
+  .feat-card__title { font-size: 20px; }
+  .feat-card__desc { font-size: 16px; }
+  .feat-card__image { aspect-ratio: 296 / 120; border-radius: 16px; }
+
+  /* TMS: stacks collapse to single column */
+  .sol-stack { gap: 20px; }
+  .showcase-grid { grid-template-columns: 1fr; gap: 32px; }
+  .showcase-card__label { font-size: 16px; }
+  .mychannel-grid { gap: 12px; }
+  .mychannel-card { padding: 20px 16px; gap: 16px; border-radius: 16px; }
+  .mychannel-card__title { font-size: 20px; }
+  .mychannel-card__desc { font-size: 16px; }
+
+  /* K.RIDEUS — intro head stacks: title/desc/more all 12px apart, 20px to image */
+  .rideus-intro-head { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+  .rideus-intro-head__text .section__desc { margin-top: 12px; }
+  .rideus-intro__more { font-size: 20px; font-weight: var(--fw-semibold); }
+  .rideus-intro__more svg { width: 24px; height: 24px; }
+
+  /* Steps: full-width horizontal cards, 20px apart, 14px badge */
+  .step-grid { grid-template-columns: 1fr; gap: 20px; }
+  .step-card__title { font-size: 20px; }
+  .step-card__desc { font-size: 16px; }
+  .step-card__badge { font-size: var(--fs-caption-1); }   /* 14px */
+
+  /* Category / License problems: 2 columns (row-gap 12 / col-gap 8) */
+  .cat-grid,
+  .prob-grid { grid-template-columns: repeat(2, 1fr); gap: 12px 8px; }
+  .cat-grid .mychannel-card,
+  .prob-grid .mychannel-card { padding: 20px 12px; border-radius: 20px; gap: 12px; }
+  .cat-grid .mychannel-card__icon,
+  .prob-grid .mychannel-card__icon { width: 114px; height: 74px; }
+  .cat-grid .mychannel-card__title,
+  .prob-grid .mychannel-card__title { font-size: 20px; }
+  .cat-grid .mychannel-card:nth-child(5) { grid-column: 1 / -1; }   /* 5th category card full width */
+
+  /* License — 9 areas: single column, round icon 60 + text */
+  .area-grid { grid-template-columns: 1fr; gap: 20px; }
+  .area-card { padding: 20px; gap: 16px; }
+  .area-card__icon { flex-basis: 60px; width: 60px; height: 60px; background-size: 50px; }
+  .area-card__text { gap: 8px; }
+  .area-card__title { font-size: 20px; }
+  .area-card__desc { font-size: 16px; }
+
+  /* License — success case box: centered, full-width pill, badges in a row */
+  .license-case { padding: 32px 20px; gap: 42px; }
+  .license-case__deco { display: none; }
+  .license-case__head { gap: 12px; text-align: center; }
+  .license-case__brand { font-size: 28px; }
+  .license-case__brands { flex-direction: column; align-items: stretch; gap: 13px; }
+  .license-case__pill { width: 100%; text-align: center; }
+  .license-case__badges .license-case__logo { flex: 1; width: auto; }
+  .license-case__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+  .license-case__stat { gap: 4px; text-align: center; }
+  .license-case__stat + .license-case__stat { border-left: none; padding-left: 0; }
+  .license-case__stat-label { font-size: 16px; }
+}

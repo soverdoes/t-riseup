@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    /* Mark JS available before first paint so scroll-reveal targets can be
+       hidden up-front (no flash). Safety net reveals all if reveal never runs. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>T-RiseUp · Your Ground Digital Partner</title>
+  <meta name="description" content="의전·수송부터 관광 셔틀까지, B2B 모빌리티 SaaS 플랫폼 T-RiseUp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png'; this.dataset.fallback='1';">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.pms">PMS Solution</span>
+              </a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.tms">TMS Solution</span>
+              </a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.rideus">K.RIDEUS</span>
+              </a>
+              <a href="./license.html" class="dropdown__item" role="menuitem">
+                <span data-i18n="nav.products.license">면허솔루션</span>
+              </a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link">
+              <span data-i18n="nav.cases">도입사례</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="nav.contact">도입문의</span>
+        </a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="hero__card" role="img" aria-label="T-RiseUp 모빌리티 플랫폼 비주얼">
+        <div class="hero__content">
+          <div class="hero__text">
+            <h1 class="hero__title">
+              <span data-i18n="hero.title.line1">Your Ground</span><br>
+              <span data-i18n="hero.title.line2">Digital Partner</span>
+            </h1>
+            <p class="hero__subtitle">
+              <span data-i18n="hero.subtitle.line1">의전 · 수송부터 관광 셔틀까지,</span> <br class="br-mo">
+              <span data-i18n="hero.subtitle.line2">B2B 모빌리티 SaaS 플랫폼</span>
+            </p>
+          </div>
+          <div class="hero__actions">
+            <a href="./contact.html" class="btn btn--primary"><span data-i18n="hero.cta.contact">도입문의</span></a>
+            <a href="./pms.html" class="btn btn--ghost"><span data-i18n="hero.cta.pms">PMS Solution</span></a>
+            <a href="./tms.html" class="btn btn--ghost"><span data-i18n="hero.cta.tms">TMS Solution</span></a>
+          </div>
+        </div>
+
+        <div class="hero__stats" role="list">
+          <div class="stat" role="listitem">
+            <div class="stat__value"><span class="stat__num" data-count-to="50000" data-comma>50,000</span>+</div>
+            <div class="stat__label" data-i18n="hero.stat.users">월간 이용자</div>
+          </div>
+          <span class="stat__divider" aria-hidden="true"></span>
+          <div class="stat" role="listitem">
+            <div class="stat__value"><span class="stat__num" data-count-to="65">65</span>%<span class="stat__arrow">↑</span></div>
+            <div class="stat__label" data-i18n="hero.stat.efficiency">업무 효율</div>
+          </div>
+          <span class="stat__divider" aria-hidden="true"></span>
+          <div class="stat" role="listitem">
+            <div class="stat__value"><span class="stat__num" data-count-to="5">5</span>초</div>
+            <div class="stat__label" data-i18n="hero.stat.realtime">실시간 관제</div>
+          </div>
+          <span class="stat__divider" aria-hidden="true"></span>
+          <div class="stat" role="listitem">
+            <div class="stat__value"><span class="stat__num" data-count-to="7">7</span>분</div>
+            <div class="stat__label" data-i18n="hero.stat.dispatch">배차 완료</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Section 2: All-in-one solution ============ -->
+    <section class="section section--solutions" id="products">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">
+            <span data-i18n="sec2.title.line1">올인원 모빌리티 운영을 위한</span><br>
+            <span data-i18n="sec2.title.line2">비즈니스 통합 솔루션</span>
+          </h2>
+          <p class="section__desc">
+            <span data-i18n="sec2.desc.line1">T-RiseUp은 국제행사, 기업, 여행사, 셔틀, 관광상품에 이르기까지</span><br class="br-pc">
+            <span data-i18n="sec2.desc.line2">이동이 필요한 모든 모빌리티 운영사의 효율적인 자산 관리와 비즈니스 확장을 지원하는 통합 솔루션입니다.</span>
+          </p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card">
+            <div class="solution-card__image" style="background-image: url('./images/solution-1-transport.jpg');" data-placeholder="의전·수송"></div>
+            <h3 class="solution-card__title" data-i18n="sec2.card.transport">의전·수송</h3>
+          </article>
+          <article class="solution-card">
+            <div class="solution-card__image" style="background-image: url('./images/solution-2-shuttle.jpg');" data-placeholder="관광·통근·셔틀"></div>
+            <h3 class="solution-card__title" data-i18n="sec2.card.shuttle">관광·통근·셔틀</h3>
+          </article>
+          <article class="solution-card">
+            <div class="solution-card__image" style="background-image: url('./images/solution-3-license.jpg');" data-placeholder="플랫폼 면허취득"></div>
+            <h3 class="solution-card__title" data-i18n="sec2.card.license">플랫폼 면허취득</h3>
+          </article>
+          <article class="solution-card">
+            <div class="solution-card__image" style="background-image: url('./images/solution-4-channel.jpg');" data-placeholder="비즈니스 채널"></div>
+            <h3 class="solution-card__title" data-i18n="sec2.card.channel">비즈니스 채널</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Section 3: Dark intro ============ -->
+    <section class="section-dark-intro">
+      <div class="section-dark-intro__inner">
+        <h2 class="section-dark-intro__title">
+          <span data-i18n="sec3.title.line1">운영부터 판매까지</span><br class="br-pc">
+          <span data-i18n="sec3.title.line2">하나의 플랫폼, 두개의 솔루션으로</span>
+        </h2>
+        <p class="section-dark-intro__desc">
+          <span data-i18n="sec3.desc.line1">T-RiseUp은 예약/배차 관리부터 상품 설계/판매까지 비즈니스 환경에 맞는</span><br>
+          <span data-i18n="sec3.desc.line2">최적의 맞춤 솔루션을 제공합니다.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Section 4: PMS Solution detail ============ -->
+    <section class="solution-detail" id="pms">
+      <div class="solution-detail__inner">
+        <div class="solution-badge solution-badge--primary">PMS Solution</div>
+
+        <div class="solution-detail__head">
+          <div class="solution-detail__head-text">
+            <h3 class="solution-detail__title">
+              <span data-i18n="sec4.title.line1">예약·배차·관제·정산 통합 솔루션</span><br>
+              <span data-i18n="sec4.title.line2">4채널 아키텍처로 운영 효율을 극대화합니다.</span>
+            </h3>
+            <p class="solution-detail__desc">
+              <span data-i18n="sec4.desc.line1">예약, 배차, 정산의 반복 업무를 줄이고</span><br>
+              <span data-i18n="sec4.desc.line2">재고 관리에 따른 정교한 스케줄 관리로 최적의 배차 체계를 구축합니다.</span>
+            </p>
+          </div>
+          <a href="./pms.html" class="solution-detail__more">
+            <span data-i18n="sec4.more">PMS 자세히보기</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="solution-detail__images">
+          <div class="solution-detail__image" style="background-image: url('./images/pms-monitor.png');" data-placeholder="pms-monitor.png"></div>
+          <div class="solution-detail__image" style="background-image: url('./images/pms-tablet.jpg');" data-placeholder="pms-tablet.jpg"></div>
+        </div>
+
+        <div class="tag-list">
+          <ul class="tag-row">
+            <li class="tag tag--feature" data-i18n="sec4.feat.1">기사·차량 자동 재고 관리</li>
+            <li class="tag tag--feature" data-i18n="sec4.feat.2">실시간 차량 관제</li>
+            <li class="tag tag--feature" data-i18n="sec4.feat.3">전세계 항공스케줄 연동</li>
+            <li class="tag tag--feature" data-i18n="sec4.feat.4">정산·AI 견적</li>
+            <li class="tag tag--feature" data-i18n="sec4.feat.5">4채널 아키텍처</li>
+          </ul>
+          <ul class="tag-row">
+            <li class="tag tag--app" data-i18n="sec4.app.1">PCO</li>
+            <li class="tag tag--app" data-i18n="sec4.app.2">행사기획사</li>
+            <li class="tag tag--app" data-i18n="sec4.app.3">운수사·의전</li>
+            <li class="tag tag--app" data-i18n="sec4.app.4">법인기업</li>
+            <li class="tag tag--app" data-i18n="sec4.app.5">쇼핑·관광</li>
+            <li class="tag tag--app" data-i18n="sec4.app.6">호텔·카지노</li>
+            <li class="tag tag--app" data-i18n="sec4.app.7">골프·투어</li>
+            <li class="tag tag--app" data-i18n="sec4.app.8">테마파크</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Section 5: TMS Solution detail ============ -->
+    <section class="solution-detail" id="tms">
+      <div class="solution-detail__inner">
+        <div class="solution-badge solution-badge--accent-blue">TMS Solution</div>
+
+        <div class="solution-detail__head">
+          <div class="solution-detail__head-text">
+            <h3 class="solution-detail__title">
+              <span data-i18n="sec5.title.line1">상품개발·노선설계·QR검표는 기본</span><br>
+              <span data-i18n="sec5.title.line2">My Channel로 비즈니스 확대를 지원합니다.</span>
+            </h3>
+            <p class="solution-detail__desc">
+              <span data-i18n="sec5.desc.line1">QR 검표 앱으로 셔틀 탑승처리를 간소화하여</span><br>
+              <span data-i18n="sec5.desc.line2">대규모 행사와 글로벌 이동 서비스에도 안정적인 운영을 보장합니다.</span>
+            </p>
+          </div>
+          <a href="./tms.html" class="solution-detail__more">
+            <span data-i18n="sec5.more">TMS 자세히보기</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="solution-detail__images">
+          <div class="solution-detail__image" style="background-image: url('./images/tms-phone.jpg');" data-placeholder="tms-phone.jpg"></div>
+          <div class="solution-detail__image" style="background-image: url('./images/tms-operator.png');" data-placeholder="tms-operator.png"></div>
+        </div>
+
+        <div class="tag-list">
+          <ul class="tag-row">
+            <li class="tag tag--feature" data-i18n="sec5.feat.1">정류장 기반 노선 설계</li>
+            <li class="tag tag--feature" data-i18n="sec5.feat.2">실시간 차량 관제</li>
+            <li class="tag tag--feature" data-i18n="sec5.feat.3">다국어·글로벌 결제 지원</li>
+            <li class="tag tag--feature" data-i18n="sec5.feat.4">독립 브랜드 커스터마이징</li>
+            <li class="tag tag--feature" data-i18n="sec5.feat.5">QR검표</li>
+          </ul>
+          <ul class="tag-row">
+            <li class="tag tag--app" data-i18n="sec5.app.1">콘서트·행사</li>
+            <li class="tag tag--app" data-i18n="sec5.app.2">셔틀·패키지</li>
+            <li class="tag tag--app" data-i18n="sec5.app.3">아파트·통근</li>
+            <li class="tag tag--app" data-i18n="sec5.app.4">관광·레저</li>
+            <li class="tag tag--app" data-i18n="sec5.app.5">테마파크</li>
+            <li class="tag tag--app" data-i18n="sec5.app.6">전세버스</li>
+            <li class="tag tag--app" data-i18n="sec5.app.7">산업단지</li>
+            <li class="tag tag--app" data-i18n="sec5.app.8">지자체</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Section 6: RIDEUS + Type1 License ============ -->
+    <section class="section-expansion">
+      <div class="section-expansion__inner">
+        <div class="section-expansion__header">
+          <h2 class="section-expansion__title">
+            <span data-i18n="sec6.title.line1">모빌리티 운영을 넘어</span><br class="br-pc">
+            <span data-i18n="sec6.title.line2">플랫폼운송사업자 비즈니스 확장까지</span>
+          </h2>
+          <p class="section-expansion__desc" data-i18n="sec6.desc">T-RiseUp만의 면허 솔루션과 마켓플레이스로 성공적인 비즈니스를 지원합니다.</p>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-row__content">
+            <h3 class="feature-row__title" data-i18n="sec6.rideus.title">RIDEUS 마켓플레이스</h3>
+            <p class="feature-row__desc">
+              <span data-i18n="sec6.rideus.desc.line1">통합 판매 채널로 유통 확장</span><br>
+              <span data-i18n="sec6.rideus.desc.line2">다양한 이동 티켓 상품을 하나의 마켓플레이스에서 판매합니다.</span>
+            </p>
+            <a href="./rideus.html" class="feature-row__more feature-row__more--accent">
+              <span data-i18n="sec6.rideus.more">K.RIDEUS 자세히보기</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="feature-row__image" style="background-image: url('./images/rideus.jpg');" data-placeholder="rideus.jpg"></div>
+        </div>
+
+        <div class="feature-row feature-row--reverse">
+          <div class="feature-row__content">
+            <h3 class="feature-row__title" data-i18n="sec6.type1.title">Type1 면허 솔루션</h3>
+            <p class="feature-row__desc">
+              <span data-i18n="sec6.type1.desc.line1">플랫폼운송사업 면허 취득 지원</span><br>
+              <span data-i18n="sec6.type1.desc.line2">시스템 구축부터 행정 절차까지 원스톱으로 지원합니다.</span>
+            </p>
+            <a href="./license.html" class="feature-row__more feature-row__more--accent">
+              <span data-i18n="sec6.type1.more">면허 솔루션 자세히보기</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="feature-row__image" style="background-image: url('./images/type1-license.jpg');" data-placeholder="type1-license.jpg"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Section 7: Success cases ============ -->
+    <section class="section-cases" id="cases">
+      <div class="section-cases__inner">
+        <div class="section-cases__header">
+          <div class="section-cases__header-text">
+            <h2 class="section-cases__title">
+              <span data-i18n="sec7.title.line1">성공적인 비즈니스를 완성한</span><br>
+              <span data-i18n="sec7.title.line2">T-RiseUp 도입 성공사례</span>
+            </h2>
+            <p class="section-cases__desc" data-i18n="sec7.desc">성공하는 프로젝트 뒤에는 언제나 T-RiseUp이 있습니다.</p>
+          </div>
+          <a href="./cases.html" class="section-cases__more">
+            <span data-i18n="sec7.more">더보기</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="case-grid">
+          <article class="case-card">
+            <div class="case-card__image" style="background-image: url('./images/case-1-apec.png');" data-placeholder="case-1-apec.png">
+              <span class="case-badge case-badge--primary" data-i18n="sec7.case1.badge">PMS + TMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client" data-i18n="sec7.case1.client">APEC 2025 KOREA</p>
+              <h3 class="case-card__title" data-i18n="sec7.case1.title">APEC 2025 수송 통합 관리 시스템</h3>
+              <p class="case-card__desc" data-i18n="sec7.case1.desc">정상회의 및 초대형 MICE 행사를 위한 기술의 표준</p>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card__image" style="background-image: url('./images/case-2-kumho.png');" data-placeholder="case-2-kumho.png">
+              <span class="case-badge case-badge--accent" data-i18n="sec7.case2.badge">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client" data-i18n="sec7.case2.client">금호고속</p>
+              <h3 class="case-card__title" data-i18n="sec7.case2.title">NC Dinos 팬 셔틀 예약 시스템</h3>
+              <p class="case-card__desc" data-i18n="sec7.case2.desc">창원·진주·김해 5개 노선·좌석 지정 예약 셔틀</p>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card__image" style="background-image: url('./images/case-3-nol.png');" data-placeholder="case-3-nol.png">
+              <span class="case-badge case-badge--accent" data-i18n="sec7.case3.badge">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client" data-i18n="sec7.case3.client">NOL 놀유니버스</p>
+              <h3 class="case-card__title" data-i18n="sec7.case3.title">2026 부산 원아이아페스티벌 셔틀</h3>
+              <p class="case-card__desc" data-i18n="sec7.case3.desc">다국어 예약 · 발권 · QR 검표 지원</p>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card__image" style="background-image: url('./images/case-4-daemyung.png');" data-placeholder="case-4-daemyung.png">
+              <span class="case-badge case-badge--accent" data-i18n="sec7.case4.badge">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client" data-i18n="sec7.case4.client">대명관광</p>
+              <h3 class="case-card__title" data-i18n="sec7.case4.title">비발디파크 26시즌 셔틀 예약시스템</h3>
+              <p class="case-card__desc" data-i18n="sec7.case4.desc">서울 · 경기 19개 노선 · 좌석 지정 예약 셔틀</p>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-card__image" style="background-image: url('./images/case-5-bepa.png');" data-placeholder="case-5-bepa.png">
+              <span class="case-badge case-badge--accent" data-i18n="sec7.case5.badge">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client" data-i18n="sec7.case5.client">부산경제진흥원</p>
+              <h3 class="case-card__title" data-i18n="sec7.case5.title">부산산업단지 근로자 통근셔틀 시스템</h3>
+              <p class="case-card__desc" data-i18n="sec7.case5.desc">12개 산업단지와 연계된 통근 셔틀 예약</p>
+            </div>
+          </article>
+      </div>
+    </section>
+
+    <!-- ============ Section 8: Customer logos ============ -->
+    <section class="section-customers">
+      <div class="section-customers__inner">
+        <div class="section-customers__header">
+          <h2 class="section-customers__title">
+            <span data-i18n="sec8.title.line1">T-RiseUp과 함께하는</span> <br class="br-mo">
+            <span data-i18n="sec8.title.line2">주요 고객사</span>
+          </h2>
+          <p class="section-customers__desc" data-i18n="sec8.desc">많은 기업들이 이미 T-RiseUp을 선택하셨습니다.</p>
+        </div>
+
+        <div class="customer-grid">
+          <div class="customer-logo" style="background-image: url('./images/customer-01-haengbokgwangjin.jpg');" data-placeholder="customer-01-haengbokgwangjin.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-02-kumhogosok.jpg');" data-placeholder="customer-02-kumhogosok.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-03-lottetour.jpg');" data-placeholder="customer-03-lottetour.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-04-mcst.jpg');" data-placeholder="customer-04-mcst.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-05-mofa.jpg');" data-placeholder="customer-05-mofa.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-06-blueorigin.jpg');" data-placeholder="customer-06-blueorigin.jpg"></div>
+
+          <div class="customer-logo" style="background-image: url('./images/customer-07-everland.jpg');" data-placeholder="customer-07-everland.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-08-dkasia.jpg');" data-placeholder="customer-08-dkasia.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-09-gblimousine.jpg');" data-placeholder="customer-09-gblimousine.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-10-intercom.jpg');" data-placeholder="customer-10-intercom.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-11-jw.jpg');" data-placeholder="customer-11-jw.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-12-jejudream.jpg');" data-placeholder="customer-12-jejudream.jpg"></div>
+
+          <div class="customer-logo" style="background-image: url('./images/customer-13-kca.jpg');" data-placeholder="customer-13-kca.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-14-kdtour.jpg');" data-placeholder="customer-14-kdtour.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-15-tami.jpg');" data-placeholder="customer-15-tami.jpg"></div>
+          <div class="customer-logo" style="background-image: url('./images/customer-16-transfer.jpg');" data-placeholder="customer-16-transfer.jpg"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final CTA ============ -->
+    <section class="cta-section">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">
+          <span data-i18n="cta.title.line1">지금 바로 T-RiseUp의</span><br>
+          <span data-i18n="cta.title.line2">가치를 확인하세요.</span>
+        </h2>
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="cta.button">도입문의</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="#" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="#" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="#" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>

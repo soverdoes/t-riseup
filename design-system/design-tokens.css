@@ -1,0 +1,126 @@
+/**
+ * t-riseup Design Tokens
+ * Source: Figma file 0bWv1E0X1AaqmKFkJHHMPU — local styles (definitive)
+ * Extracted via figma-console MCP plugin API.
+ *
+ * Naming follows Figma token paths exactly (slash → hyphen):
+ *   bg/*, tx/*, interactive/*, border/*, gray/*, icon/*
+ *
+ * IMPORTANT:
+ *   - Text token namespace is `tx-*` (not `text-*`)
+ *   - White text is `--tx-white` (not `--tx-inverse`)
+ *   - interactive/primary is #2E3092 (not #2E3192)
+ */
+
+:root {
+  /* ============ Background (bg/*) ============ */
+  --bg-primary:   #FFFFFF;
+  --bg-secondary: #F3F3F3;
+  --bg-surface:   #F4F4F8;
+  --bg-accent:    #F2F7F8;
+  --bg-dark:      #231F20;
+
+  /* ============ Text (tx/*) ============ */
+  --tx-primary:   #222222;
+  --tx-secondary: #555555;
+  --tx-muted:     #6F6F6F;
+  --tx-disabled:  #CCCCCC;
+  --tx-white:     #FFFFFF;
+
+  /* ============ Interactive (interactive/*) ============ */
+  --interactive-primary:      #2E3092;
+  --interactive-primary-dark: #1E2170;
+  --interactive-secondary:    #6B6EC0;
+  --interactive-accent:       #F37021;
+  --interactive-accent-blue:  #0076FF;
+
+  /* ============ Border (border/*) ============ */
+  --border-default: #CCCCCC;
+  --border-strong:  #444444;
+  --border-light:   #EFEDF0;
+
+  /* ============ Gray (gray/*) — 8 steps, 400/800 omitted ============ */
+  --gray-50:  #F8F8F8;
+  --gray-100: #F3F3F3;
+  --gray-200: #EFEDF0;
+  --gray-300: #CCCCCC;
+  --gray-500: #6B6B6B;
+  --gray-600: #555555;
+  --gray-700: #444444;
+  --gray-900: #222222;
+
+  /* ============ Icon (icon/*) ============ */
+  --icon-1: #222222;
+  --icon-2: #FFFFFF;
+
+  /* ============ Typography ============ */
+  --font-family:         'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+  --font-family-display: 'Montserrat', sans-serif;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-black:    900;
+
+  /* Display (Display 1, 4 = Montserrat Black 900 / Display 2, 3 = Pretendard Bold 700) */
+  --fs-display-1: 74px;  --lh-display-1: 100%;
+  --fs-display-2: 48px;  --lh-display-2: normal;
+  --fs-display-3: 60px;  --lh-display-3: normal;
+  --fs-display-4: 60px;  --lh-display-4: 100%;
+
+  /* Heading (Pretendard, all 4 weights available) */
+  --fs-h1: 40px;  --lh-h1: normal;
+  --fs-h2: 32px;  --lh-h2: normal;
+  --fs-h3: 28px;  --lh-h3: normal;
+  --fs-h4: 24px;  --lh-h4: normal;
+  --fs-h5: 20px;  --lh-h5: 140%;
+
+  /* Body / Caption (Pretendard, all 4 weights) */
+  --fs-body-1:    18px; --lh-body-1:    normal;
+  --fs-body-2:    16px; --lh-body-2:    normal;
+  --fs-caption-1: 14px; --lh-caption-1: normal;
+  --fs-caption-2: 12px; --lh-caption-2: normal;
+}
+
+/* ============ Typography utility classes ============ */
+/* Display 1 & 4 use Montserrat Black; Display 2 & 3 use Pretendard Bold (fixed weight). */
+.text-display-1 {
+  font-family: var(--font-family-display);
+  font-weight: var(--fw-black);
+  font-size: var(--fs-display-1);
+  line-height: var(--lh-display-1);
+}
+.text-display-2 {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display-2);
+  line-height: var(--lh-display-2);
+}
+.text-display-3 {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-display-3);
+  line-height: var(--lh-display-3);
+}
+.text-display-4 {
+  font-family: var(--font-family-display);
+  font-weight: var(--fw-black);
+  font-size: var(--fs-display-4);
+  line-height: var(--lh-display-4);
+}
+
+.text-h1 { font-size: var(--fs-h1); line-height: var(--lh-h1); }
+.text-h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); }
+.text-h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); }
+.text-h4 { font-size: var(--fs-h4); line-height: var(--lh-h4); }
+.text-h5 { font-size: var(--fs-h5); line-height: var(--lh-h5); }
+
+.text-body-1    { font-size: var(--fs-body-1);    line-height: var(--lh-body-1); }
+.text-body-2    { font-size: var(--fs-body-2);    line-height: var(--lh-body-2); }
+.text-caption-1 { font-size: var(--fs-caption-1); line-height: var(--lh-caption-1); }
+.text-caption-2 { font-size: var(--fs-caption-2); line-height: var(--lh-caption-2); }
+
+.fw-regular  { font-weight: var(--fw-regular); }
+.fw-medium   { font-weight: var(--fw-medium); }
+.fw-semibold { font-weight: var(--fw-semibold); }
+.fw-bold     { font-weight: var(--fw-bold); }
+.fw-black    { font-weight: var(--fw-black); }

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (!d.classList.contains('reveal-init')) d.classList.add('reveal-fallback');
+        }, 600);
+      });
+    })();
+  </script>
+  <title>도입사례 · T-RiseUp</title>
+  <meta name="description" content="T-RiseUp 도입으로 성공적인 비즈니스를 설계한 고객 사례">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./design-system/design-tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+  <link rel="stylesheet" href="./css/solution.css">
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="./index.html" class="site-header__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-color.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-color.png'; this.dataset.fallback='1';">
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <button type="button" class="site-nav__link" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger="products">
+              <span data-i18n="nav.products">제품</span>
+            </button>
+            <div class="dropdown" data-dropdown="products" role="menu" aria-label="Products">
+              <a href="./pms.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.pms">PMS Solution</span></a>
+              <a href="./tms.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.tms">TMS Solution</span></a>
+              <a href="./rideus.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.rideus">K.RIDEUS</span></a>
+              <a href="./license.html" class="dropdown__item" role="menuitem"><span data-i18n="nav.products.license">면허솔루션</span></a>
+            </div>
+          </li>
+          <li class="site-nav__item">
+            <a href="./cases.html" class="site-nav__link"><span data-i18n="nav.cases">도입사례</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="./contact.html" class="btn btn--primary btn--sm"><span data-i18n="nav.contact">도입문의</span></a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+
+      <button type="button" class="site-header__toggle" data-menu-toggle aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+        <span class="site-header__toggle-bar"></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+      <nav class="mobile-menu__nav" aria-label="Mobile">
+        <span class="mobile-menu__heading" data-i18n="nav.products">제품</span>
+        <a href="./pms.html" class="mobile-menu__link" data-i18n="nav.products.pms">PMS Solution</a>
+        <a href="./tms.html" class="mobile-menu__link" data-i18n="nav.products.tms">TMS Solution</a>
+        <a href="./rideus.html" class="mobile-menu__link" data-i18n="nav.products.rideus">K.RIDEUS</a>
+        <a href="./license.html" class="mobile-menu__link" data-i18n="nav.products.license">면허솔루션</a>
+        <a href="./cases.html" class="mobile-menu__link mobile-menu__link--standalone" data-i18n="nav.cases">도입사례</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <a href="./contact.html" class="btn btn--primary" data-i18n="nav.contact">도입문의</a>
+        <button type="button" class="lang-switch" aria-label="Switch language" data-i18n-attr="aria-label|lang.switch">
+          <svg class="lang-switch__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-switch__label" data-current-lang>KO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ Hero ============ -->
+    <section class="sol-hero">
+      <div class="sol-hero__banner" style="background-image: url('./images/cases-hero-bg.jpg');">
+        <h1 class="sol-hero__title">
+          <span data-i18n="cases.hero.title.line1">T-RiseUp 도입으로</span><br>
+          <span data-i18n="cases.hero.title.line2">성공적인 비즈니스를 설계하세요</span>
+        </h1>
+        <span class="sol-hero__badge">도입사례</span>
+      </div>
+    </section>
+
+    <!-- ============ Cases list ============ -->
+    <section class="section">
+      <div class="container">
+
+        <div class="case-filter" role="tablist" aria-label="카테고리 필터">
+          <button type="button" class="case-filter__chip is-active" data-case-filter="all" data-i18n="cases.filter.all">전체</button>
+          <button type="button" class="case-filter__chip" data-case-filter="국가행사" data-i18n="cases.filter.gov">국가행사</button>
+          <button type="button" class="case-filter__chip" data-case-filter="관광·레저" data-i18n="cases.filter.tour">관광·레저</button>
+          <button type="button" class="case-filter__chip" data-case-filter="스포츠센터" data-i18n="cases.filter.sports">스포츠센터</button>
+          <button type="button" class="case-filter__chip" data-case-filter="공공·통근" data-i18n="cases.filter.commute">공공·통근</button>
+          <button type="button" class="case-filter__chip" data-case-filter="국제스포츠" data-i18n="cases.filter.intl">국제스포츠</button>
+          <button type="button" class="case-filter__chip" data-case-filter="해외" data-i18n="cases.filter.overseas">해외</button>
+          <button type="button" class="case-filter__chip" data-case-filter="아파트·맴버십" data-i18n="cases.filter.apt">아파트·맴버십</button>
+          <button type="button" class="case-filter__chip" data-case-filter="면허솔루션" data-i18n="cases.filter.license">면허솔루션</button>
+        </div>
+
+        <div class="cases-grid">
+
+          <article class="case-card" data-case-category="국가행사">
+            <div class="case-card__image" style="background-image: url('./images/case-apec-kr.png');" data-placeholder="case-apec-kr.png">
+              <span class="case-badge case-badge--primary">PMS + TMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">APEC 2025 KOREA</p>
+              <h2 class="case-card__title">APEC 2025 수송 통합 관리 시스템</h2>
+              <p class="case-card__desc">정상회의 및 초대형 MICE 행사를 위한 기술의 표준</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="관광·레저">
+            <div class="case-card__image" style="background-image: url('./images/case-kumho.png');" data-placeholder="case-kumho.png">
+              <span class="case-badge case-badge--primary">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">금호고속</p>
+              <h2 class="case-card__title">NC Dinos 팬 셔틀 예약 시스템</h2>
+              <p class="case-card__desc">창원·진주·김해 5개 노선·좌석 지정 예약 셔틀</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="스포츠센터">
+            <div class="case-card__image" style="background-image: url('./images/case-nol-oneasia.png');" data-placeholder="case-nol-oneasia.png">
+              <span class="case-badge case-badge--primary">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">NOL 놀유니버스</p>
+              <h2 class="case-card__title">2026 부산 원아이아페스티벌 셔틀</h2>
+              <p class="case-card__desc">다국어 예약 · 발권 · QR 검표 지원</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="관광·레저">
+            <div class="case-card__image" style="background-image: url('./images/case-daemyung.png');" data-placeholder="case-daemyung.png">
+              <span class="case-badge case-badge--primary">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">대명관광</p>
+              <h2 class="case-card__title">비발디파크 26시즌 셔틀 예약시스템</h2>
+              <p class="case-card__desc">서울 · 경기 19개 노선 · 좌석 지정 예약 셔틀</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="공공·통근">
+            <div class="case-card__image" style="background-image: url('./images/case-bepa.png');" data-placeholder="case-bepa.png">
+              <span class="case-badge case-badge--primary">TMS + TIS + MC</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">부산경제진흥원</p>
+              <h2 class="case-card__title">부산산업단지 근로자 통근셔틀 시스템</h2>
+              <p class="case-card__desc">12개 산업단지와 연계된 통근 셔틀 예약</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="공공·통근">
+            <div class="case-card__image" style="background-image: url('./images/case-gwangjin.png');" data-placeholder="case-gwangjin.png">
+              <span class="case-badge case-badge--primary">TMS + TIS + MC</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">광진구청</p>
+              <h2 class="case-card__title">광진구청 공공셔틀 관제 시스템</h2>
+              <p class="case-card__desc">광진구 전역 순환 셔틀, 단독 브랜드·실시간 관제</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="국가행사">
+            <div class="case-card__image" style="background-image: url('./images/case-iccjeju.png');" data-placeholder="case-iccjeju.png">
+              <span class="case-badge case-badge--primary">PMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">제주국제컨벤션센터</p>
+              <h2 class="case-card__title">APEC 2025 SOM2 의전 수송</h2>
+              <p class="case-card__desc">국제행사 VIP 의전 수송 관리</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="관광·레저">
+            <div class="case-card__image" style="background-image: url('./images/case-jejudream.png');" data-placeholder="case-jejudream.png">
+              <span class="case-badge case-badge--primary">PMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">제주드림타워리조트</p>
+              <h2 class="case-card__title">카지노 리무진 통합 운영 시스템</h2>
+              <p class="case-card__desc">카지노 관광객을 위한 예약·배차 시스템</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="국제스포츠">
+            <div class="case-card__image" style="background-image: url('./images/case-ittf.png');" data-placeholder="case-ittf.png">
+              <span class="case-badge case-badge--primary">PMS + TMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">부산세계탁구선수권대회 조직위원회</p>
+              <h2 class="case-card__title">2024 부산세계탁구선수권대회 의전 수송</h2>
+              <p class="case-card__desc">대회 운영을 위한 수송 및 셔틀 통합 관리</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="스포츠센터">
+            <div class="case-card__image" style="background-image: url('./images/case-nol-blackpink.png');" data-placeholder="case-nol-blackpink.png">
+              <span class="case-badge case-badge--primary">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">NOL 놀유니버스</p>
+              <h2 class="case-card__title">블랙핑크 2025 월드투어 팬 셔틀</h2>
+              <p class="case-card__desc">다국어 예약 · 발권 · QR 검표 지원</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="스포츠센터">
+            <div class="case-card__image" style="background-image: url('./images/case-nol-sbsgayo.png');" data-placeholder="case-nol-sbsgayo.png">
+              <span class="case-badge case-badge--primary">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">NOL 놀유니버스</p>
+              <h2 class="case-card__title">SBS 가요대전 다국적 팬 셔틀</h2>
+              <p class="case-card__desc">윈터, 썸머 콘서트 다국어 예약 · 발권 · QR 검표</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="관광·레저">
+            <div class="case-card__image" style="background-image: url('./images/case-everland.png');" data-placeholder="case-everland.png">
+              <span class="case-badge case-badge--primary">PMS + TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">에버랜드</p>
+              <h2 class="case-card__title">테마파크 프라이빗 · 셔틀 예약 시스템</h2>
+              <p class="case-card__desc">다국어 예약 · 글로벌 결제 · 발권 · QR 검표</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="해외">
+            <div class="case-card__image" style="background-image: url('./images/case-gblimo.png');" data-placeholder="case-gblimo.png">
+              <span class="case-badge case-badge--primary">PMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">GB Limousine Thailand</p>
+              <h2 class="case-card__title">리무진 차량 서비스 통합 운영 시스템</h2>
+              <p class="case-card__desc">태국어 지원, 디지털 예약·배차 시스템의 전환</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="해외">
+            <div class="case-card__image" style="background-image: url('./images/case-jpark.png');" data-placeholder="case-jpark.png">
+              <span class="case-badge case-badge--primary">PMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">Jpark Island Resort</p>
+              <h2 class="case-card__title">리조트 차량 서비스 통합 운영 시스템</h2>
+              <p class="case-card__desc">태국어 지원, 디지털 예약·배차 시스템의 전환</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="아파트·맴버십">
+            <div class="case-card__image" style="background-image: url('./images/case-geomam.png');" data-placeholder="case-geomam.png">
+              <span class="case-badge case-badge--primary">TMS + TIS + MC</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">검암 로열파크씨티 푸르지오</p>
+              <h2 class="case-card__title">대단지 아파트 셔틀</h2>
+              <p class="case-card__desc">단독 브랜드 · QR검표 탑승 · 실시간 관제</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="아파트·맴버십">
+            <div class="case-card__image" style="background-image: url('./images/case-singeomam.png');" data-placeholder="case-singeomam.png">
+              <span class="case-badge case-badge--primary">TMS + TIS + MC</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">신검단 로열파크씨티 II</p>
+              <h2 class="case-card__title">대단지 아파트 셔틀</h2>
+              <p class="case-card__desc">단독 브랜드 · QR검표 탑승 · 실시간 관제</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="관광·레저">
+            <div class="case-card__image" style="background-image: url('./images/case-kdtour.png');" data-placeholder="case-kdtour.png">
+              <span class="case-badge case-badge--primary">TMS + Booking</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">KDTOUR 스키셔틀</p>
+              <h2 class="case-card__title">6개 대형 리조트 통합 셔틀 예약</h2>
+              <p class="case-card__desc">다국어 예약 · 글로벌 결제 · 발권 · QR 검표 지원</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="국제스포츠">
+            <div class="case-card__image" style="background-image: url('./images/case-kdkoo.png');" data-placeholder="case-kdkoo.png">
+              <span class="case-badge case-badge--primary">PMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">KDKOO</p>
+              <h2 class="case-card__title">2024 제네시스 챔피언십 의전 수송</h2>
+              <p class="case-card__desc">골프 리그 행사 차량 운영 시스템</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="국제스포츠">
+            <div class="case-card__image" style="background-image: url('./images/case-afc.png');" data-placeholder="case-afc.png">
+              <span class="case-badge case-badge--primary">PMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">Asian Football Confederation</p>
+              <h2 class="case-card__title">AFC Awards 2023 의전 수송</h2>
+              <p class="case-card__desc">국제 스포츠 시상식 VIP 의전 수송 관리</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="면허솔루션">
+            <div class="case-card__image" style="background-image: url('./images/case-wizmo.png');" data-placeholder="case-wizmo.png">
+              <span class="case-badge case-badge--primary">면허솔루션</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">WIZMO</p>
+              <h2 class="case-card__title">플랫폼운송사업 타입1 면허 취득</h2>
+              <p class="case-card__desc">T-RiseUp PMS로 국토부 심사 9개 영역 충족</p>
+            </div>
+          </article>
+
+          <article class="case-card" data-case-category="공공·통근">
+            <div class="case-card__image" style="background-image: url('./images/case-jw.png');" data-placeholder="case-jw.png">
+              <span class="case-badge case-badge--primary">PMS + TMS</span>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__client">JW중외그룹</p>
+              <h2 class="case-card__title">기업 통근 셔틀 예약 시스템</h2>
+              <p class="case-card__desc">출퇴근 셔틀 예약 · QR검표 탑승</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Final CTA ============ -->
+    <section class="cta-section">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">
+          <span data-i18n="cta.title.line1">지금 바로 T-RiseUp의</span><br>
+          <span data-i18n="cta.title.line2">가치를 확인하세요.</span>
+        </h2>
+        <a href="./contact.html" class="btn btn--primary btn--sm">
+          <span data-i18n="cta.button">도입문의</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="./index.html" class="site-footer__logo" aria-label="T-RiseUp">
+        <img src="./images/logo-white.svg" alt="T-RiseUp" class="logo-img" onerror="this.onerror=null; this.src='./images/logo-white.png';">
+      </a>
+      <div class="site-footer__columns">
+        <div class="site-footer__col">
+          <ul class="site-footer__company">
+            <li data-i18n="footer.company.ceo">대표이사 장동원</li>
+            <li data-i18n="footer.company.bizno">사업자번호 238-81-00429</li>
+            <li data-i18n="footer.company.location">위치기반서비스사업신고번호 12221</li>
+            <li data-i18n="footer.company.commerce">통신판매업신고번호 부산번호로</li>
+          </ul>
+          <ul class="site-footer__terms">
+            <li><a href="#" data-i18n="footer.terms.privacy">개인정보처리방침</a></li>
+            <li><a href="#" data-i18n="footer.terms.service">이용약관</a></li>
+            <li><a href="#" data-i18n="footer.terms.location">위치기반서비스 이용약관</a></li>
+          </ul>
+          <p class="site-footer__copyright" data-i18n="footer.copyright">Copyright  ©  Ground K. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/i18n.js" defer></script>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
