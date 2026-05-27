@@ -296,7 +296,17 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease;
 }
+a.showcase-card:hover .showcase-card__image,
+a.showcase-card:focus-visible .showcase-card__image { border-color: var(--interactive-accent-blue); }
+a.showcase-card:hover .showcase-card__caption,
+a.showcase-card:focus-visible .showcase-card__caption { border-color: var(--interactive-accent-blue); }
+a.showcase-card:hover .showcase-card__icon,
+a.showcase-card:focus-visible .showcase-card__icon { color: var(--interactive-accent-blue); }
+a.showcase-card:hover { transform: translateY(-2px); }
 .showcase-card__image {
   width: 100%;
   aspect-ratio: 385 / 190;
