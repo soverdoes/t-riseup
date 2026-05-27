@@ -371,26 +371,72 @@ function initImageFallback() {
   });
 }
 
-/* ============ Language toggle (KO ↔ EN) ============ */
+/* ============ Language switch (KO / EN dropdown) ============ */
 function initLanguageSwitch() {
-  const btns = document.querySelectorAll('.lang-switch');
-  if (!btns.length || !window.i18n) return;
+  const switches = document.querySelectorAll('[data-lang-switch]');
+  if (!switches.length || !window.i18n) return;
 
-  const updateLabels = () => {
-    const lang = window.i18n.getLang();
-    document.querySelectorAll('.lang-switch [data-current-lang]').forEach((el) => {
-      el.textContent = lang === 'ko' ? 'KO' : 'EN';
+  const closeAll = (except) => {
+    switches.forEach((sw) => {
+      if (sw === except) return;
+      sw.classList.remove('is-open');
+      const t = sw.querySelector('.lang-switch__trigger');
+      if (t) t.setAttribute('aria-expanded', 'false');
     });
   };
 
-  updateLabels();
-
-  btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const next = window.i18n.getLang() === 'ko' ? 'en' : 'ko';
-      window.i18n.setLang(next);
-      updateLabels();
+  const syncState = () => {
+    const lang = window.i18n.getLang();
+    document.querySelectorAll('[data-lang-switch] [data-current-lang]').forEach((el) => {
+      el.textContent = lang === 'ko' ? 'KO' : 'EN';
     });
+    document.querySelectorAll('[data-lang-switch] .lang-switch__option').forEach((opt) => {
+      opt.setAttribute('aria-selected', String(opt.getAttribute('data-lang') === lang));
+    });
+  };
+
+  syncState();
+
+  switches.forEach((sw) => {
+    const trigger = sw.querySelector('.lang-switch__trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const willOpen = !sw.classList.contains('is-open');
+      closeAll(willOpen ? sw : null);
+      sw.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', String(willOpen));
+    });
+
+    sw.querySelectorAll('.lang-switch__option').forEach((opt) => {
+      opt.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const lang = opt.getAttribute('data-lang');
+        if (lang && lang !== window.i18n.getLang()) {
+          window.i18n.setLang(lang);
+        }
+        syncState();
+        sw.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    switches.forEach((sw) => {
+      if (!sw.contains(e.target)) {
+        sw.classList.remove('is-open');
+        const t = sw.querySelector('.lang-switch__trigger');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll(null);
   });
 }
 

@@ -17,6 +17,8 @@ const DICT = {
     'nav.products.rideus': 'K.RIDEUS',
     'nav.products.license': '면허솔루션',
     'lang.switch': '언어 변경',
+    'lang.option.ko': '한국어',
+    'lang.option.en': 'English',
 
     // Hero
     'hero.title.line1': 'Your Ground',
@@ -459,6 +461,8 @@ const DICT = {
     'nav.products.rideus': 'K.RIDEUS',
     'nav.products.license': 'License Solution',
     'lang.switch': 'Switch language',
+    'lang.option.ko': '한국어',
+    'lang.option.en': 'English',
 
     // Hero
     'hero.title.line1': 'Your Ground',
